@@ -1,0 +1,3559 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://developer.yahoo.co.jp/webapi/shopping/editItem.html -->
+<html lang="ja" class="js sb17"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+
+<title>商品登録API - Yahoo!デベロッパーネットワーク</title>
+
+<link rel="preload" href="./商品登録API - Yahoo!デベロッパーネットワーク_files/common.css" as="style">
+<link rel="preload" href="./商品登録API - Yahoo!デベロッパーネットワーク_files/layout.css" as="style">
+
+<meta name="description" content="Yahoo! JAPANの日本語処理や地図、ID連携といった技術は、簡単にお客様のWebサイトに組み込むことができます。Yahoo!デベロッパーネットワークではそのためのWeb APIやSDKを提供しています。">
+<meta name="keywords" content="Yahoo,ヤフー,API,OSS">
+<meta property="og:title" content="商品登録API - Yahoo!デベロッパーネットワーク">
+<meta property="og:description" content="Yahoo! JAPANの日本語処理や地図、ID連携といった技術は、簡単にお客様のWebサイトに組み込むことができます。Yahoo!デベロッパーネットワークではそのためのWeb APIやSDKを提供しています。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Yahoo!デベロッパーネットワーク">
+<meta property="og:image" content="https://s.yimg.jp/images/yjdn/website/v2/images/ogp.png">
+<meta property="og:url" content="https://developer.yahoo.co.jp/webapi/shopping/editItem.html">
+<meta property="og:locale" content="ja_JP">
+
+
+<meta name="origin-title" content="商品登録API - Yahoo!デベロッパーネットワーク">
+
+<meta name="twitter:site" content="@ydnjp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="apple-touch-icon" href="https://s.yimg.jp/i/docs/integrate/images/common/about_yahoo_webclip.png">
+
+<link rel="stylesheet" href="./商品登録API - Yahoo!デベロッパーネットワーク_files/common.css" media="all">
+<link rel="stylesheet" href="./商品登録API - Yahoo!デベロッパーネットワーク_files/layout.css" media="all">
+<link rel="icon" href="https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico">
+
+
+<script src="./商品登録API - Yahoo!デベロッパーネットワーク_files/rec.php" type="text/javascript" async=""></script><script type="text/javascript" async="" src="./商品登録API - Yahoo!デベロッパーネットワーク_files/cmt.js.download"></script><script type="text/javascript" src="./商品登録API - Yahoo!デベロッパーネットワーク_files/ya-1.6.0.min.js.download"></script><script type="text/javascript" src="./商品登録API - Yahoo!デベロッパーネットワーク_files/ytag.js.download"></script><script type="text/javascript" src="./商品登録API - Yahoo!デベロッパーネットワーク_files/tag"></script><script async="" src="./商品登録API - Yahoo!デベロッパーネットワーク_files/tag.js.download"></script><script type="text/javascript">
+  (function () {
+    var tagjs = document.createElement("script");
+    var s = document.getElementsByTagName("script")[0];
+    tagjs.async = true;
+    tagjs.src = "//s.yjtag.jp/tag.js#site=t0xczxQ";
+    s.parentNode.insertBefore(tagjs, s);
+  }());
+</script>
+<link rel="preconnect" href="https://dsb.yahoo.co.jp/"><link rel="preconnect" href="https://dsb.yahoo.co.jp/"></head>
+
+    <body class="bg-gray-1">
+      <noscript>
+        <iframe src="//b.yjtag.jp/iframe?c=t0xczxQ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      </noscript>
+      <!-- AD_POSITIONS(EMG3,EMG2,EMG) -->
+
+<div id="navi">
+
+<header class="header-navigation header-navigation-withdrow" id="header-navigation">
+  <nav class="bar" aria-label="メインメニュー"> <a class="site-id" href="https://about.yahoo.co.jp/"><img src="./商品登録API - Yahoo!デベロッパーネットワーク_files/yahoo_logo.png" width="400" height="102" alt="Yahoo! JAPAN - 会社概要"></a>
+    <ul class="global-nav">
+      <li><a href="https://about.yahoo.co.jp/info/" data-menu="1">企業情報</a></li>
+      <li><a href="https://about.yahoo.co.jp/pr/" data-menu="2">ニュース</a></li>
+      <li><a href="https://about.yahoo.co.jp/service/" data-menu="3">サービス</a></li>
+      <li><a href="https://developer.yahoo.co.jp/" data-menu="4" class="current">テクノロジー</a></li>
+      <li><a href="https://about.yahoo.co.jp/csr/" data-menu="5">CSR</a></li>
+      <li><a href="https://about.yahoo.co.jp/hr/" data-menu="6">採用情報</a></li>
+    </ul>
+    <button type="button" data-menu="7" class="search"><span><img src="./商品登録API - Yahoo!デベロッパーネットワーク_files/icon_search.png" alt="コーポレートサイト検索を開く"></span></button>
+    <p id="btn-menu">
+      <button><span>MENU</span></button>
+    </p>
+  </nav>
+  <div class="megamenu">
+    <div data-menu="1">
+      <div class="head"><a href="https://about.yahoo.co.jp/info/">企業情報</a></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/company/">会社情報</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/message/">トップメッセージ</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/officers/">役員体制</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/history/">ヤフーの歴史</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/blog/">コーポレートブログ</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://www.z-holdings.co.jp/company/groupcompanies/" target="_blank">主なグループ会社<br>（Zホールディングスサイトへ）</a></li>
+			<li><a href="https://about.yahoo.co.jp/topics/">トピックス</a></li>
+          	<li><a href="https://about.yahoo.co.jp/common/koukoku/">電子公告</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div data-menu="2">
+      <div class="head"><a href="https://about.yahoo.co.jp/pr/">ニュース</a></div>
+      <div class="body col-set">
+        <div class="col1-4">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/pr/#pr">プレスリリース</a></dt>
+            <dt><span>2022年～2018年</span></dt>
+            <dd>
+              <ul>
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/"><span>2022年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2021/"><span>2021年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2020/"><span>2020年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2019/"><span>2019年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2018/"><span>2018年</span></a></li>
+
+              </ul>
+            </dd>
+
+            <dt class="show-pc-max"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2017年～2013年</span></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2017/"><span>2017年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2016/"><span>2016年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2015/"><span>2015年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2014/"><span>2014年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2013/"><span>2013年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2012年～2008年</span></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2012/"><span>2012年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2011/"><span>2011年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2010/"><span>2010年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2009/"><span>2009年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2008/"><span>2008年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2007年～2003年</span></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2007/"><span>2007年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2006/"><span>2006年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2005/"><span>2005年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2004/"><span>2004年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2003/"><span>2003年</span></a></li>
+
+
+              </ul>
+            </dd>
+            <dt class="show-sp-tab"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div data-menu="3">
+      <div class="head"><a href="https://about.yahoo.co.jp/service/">サービス</a></div>
+      <div class="body col-set">
+        <div class="col1-2">
+          <dl>
+            <dt><span>メディア</span></dt>
+            <dd>
+              <div class="col-set">
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/movie/">映画</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carnavi/">カーナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carview/">carview!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/calendar/">カレンダー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/kids/">きっず</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/gyao/">GYAO!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/creators/">クリエイターズプログラム</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/search/">検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/sponavi/">スポーツナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/chiebukuro/">知恵袋</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/tv/">テレビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/weather/">天気</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/news/">ニュース</a></li>
+                  </ul>
+                </div>
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/donation/">ネット募金</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/finance/">ファイナンス</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/emg/">防災速報</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/partner/">パートナー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/map/">MAP</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/mail/">メール</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/yahoojapan/">Yahoo! JAPANアプリ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/realtime/">リアルタイム検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/transit/">路線情報</a></li>
+                  </ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>コマース</span></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/ebookjapan/">ebookjapan</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/fortune/">占い</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/yellmarket/">エールマーケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/card/">カード</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/game/">ゲーム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/shopping/">ショッピング</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/ticket/">チケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/travel/">トラベル</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/passmarket/">PassMarket</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/beauty/">BEAUTY</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/realestate/">不動産</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/premium/">プレミアム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypay/">PayPay</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypayfleamarket/">PayPayフリマ</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypaymall/">PayPayモール</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/auctions/">ヤフオク!</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>ビジネス</span></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/datasolution/">データソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/place/">プレイス</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/marketing/">マーケティングソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/lodge/">LODGE</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/saigai-support/">災害支援</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div data-menu="4">
+      <div class="head"><a href="https://developer.yahoo.co.jp/">テクノロジー</a></div>
+			<div class="body col-set">
+				<div class="col1-4">
+					<dl>
+						<dt><span>API・OSS</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://e.developer.yahoo.co.jp/dashboard/">アプリケーションの管理</a></li>
+								<li><a href="https://developer.yahoo.co.jp/start/">ご利用ガイド</a></li>
+								<li><a href="https://developer.yahoo.co.jp/sitemap/">APIドキュメント</a></li>
+								<li><a href="https://developer.yahoo.co.jp/yconnect/">Yahoo! ID連携</a></li>
+								<li><a href="https://developer.yahoo.co.jp/oss/">OSS</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>技術情報</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techblog.yahoo.co.jp/">Tech Blog</a></li>
+								<li><a href="https://www.docswell.com/user/ydnjp">登壇資料</a></li>
+								<li><a href="https://www.youtube.com/YahooDeveloperNetworkJP">登壇動画</a></li>
+								<li><a href="https://developer.yahoo.co.jp/labs/">Yahoo!ラボ</a></li>
+								<li><a href="https://randd.yahoo.co.jp/">Yahoo! JAPANの研究開発</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>イベント</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techconference.yahoo.co.jp/">Tech Conference</a></li>
+								<li><a href="https://hackday.yahoo.co.jp/">Hack Day</a></li>
+								<li><a href="https://hacku.yahoo.co.jp/">Hack U</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>コミュニティ</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://yj-meetup.connpass.com/">東京</a></li>
+								<li><a href="https://yahoo-nagoya.connpass.com/">名古屋</a></li>
+								<li><a href="https://yahoo-osaka.connpass.com/">大阪</a></li>
+								<li><a href="https://yahoo-fukuoka.connpass.com/">福岡</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div>
+    <div data-menu="5">
+      <div class="head"><a href="https://about.yahoo.co.jp/csr/">CSR</a></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/message/">トップメッセージ</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/en/csr/message/">TOP MESSAGE (English)</a></dt>
+            <dt><a href="https://www.z-holdings.co.jp/sustainability/stakeholder/" target="_blank">ESG（Zホールディングスサイトへ）</a></dt>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/effort/">Yahoo! JAPANが挑戦する<br>社会課題解決の取り組み</a></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category01.html">#1 情報技術社会の発展</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category02.html">#2 災害・社会課題への支援</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category03.html">#3 誰もが活躍できる社会の実現</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category04.html">#4 持続可能な社会への挑戦</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/report/">課題解決特集</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/topics/20200409.html">新型コロナウイルス感染拡大に関する<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/tohokujyunen/">東日本大震災における<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/donationforcarbonneutral/">Yahoo! JAPAN 地域カーボンニュートラル<br>促進プロジェクト</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div data-menu="6">
+      <div class="head"><a href="https://about.yahoo.co.jp/hr/">採用情報</a></div>
+			<div class="body col-set">
+				<div class="col1-6">
+					<dl>
+						<dt><span>MESSAGE</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/message/ceo.html">CEOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/message/cto.html">CTOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>ABOUT US</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/about/movie/">動画で知るヤフー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/linotice/">ヤフーの人・仕事・働き方を伝えるlinotice</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/about/infographics/">数字で見るヤフー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>SERVICE</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/service/">サービス・事業</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>INTERVIEW</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/interview/">社員インタビュー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>WORKPLACE</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/workstyle/">働き方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/office/">オフィス紹介</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/culture/">カルチャー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/training/">人財育成</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/welfare/">福利厚生</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/mypolaris/">クリエイター活動支援制度</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/faq/">FAQ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>RECRUITMENT</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/potential/">ポテンシャル採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/job-info/">キャリア採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/forengineers/">エンジニアの方へ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/disabilities/">障がいをお持ちの方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/gigpartner/">ギグパートナー募集</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/internship/">インターンシップ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div>
+    <div data-menu="7" class="search">
+      <form role="search" class="clearfix" action="https://about.yahoo.co.jp/search/">
+        <input name="q" type="text" value="" placeholder="コーポレートサイトを検索" aria-label="検索キーワード">
+        <button type="submit">検索</button>
+        <input type="hidden" name="category">
+      </form>
+    </div>
+  </div>
+  <!-- /.megamenu -->
+  <div class="bar-bg"></div>
+</header><div class="hamburger"><div class="global" style="display: none;"><div data-menu="1">
+      <div class="head"><a href="https://about.yahoo.co.jp/info/">企業情報</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/company/">会社情報</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/message/">トップメッセージ</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/officers/">役員体制</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/history/">ヤフーの歴史</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/blog/">コーポレートブログ</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://www.z-holdings.co.jp/company/groupcompanies/" target="_blank">主なグループ会社<br>（Zホールディングスサイトへ）</a></li>
+			<li><a href="https://about.yahoo.co.jp/topics/">トピックス</a></li>
+          	<li><a href="https://about.yahoo.co.jp/common/koukoku/">電子公告</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><div data-menu="2">
+      <div class="head"><a href="https://about.yahoo.co.jp/pr/">ニュース</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-4">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/pr/#pr">プレスリリース</a></dt>
+            <dt><span>2022年～2018年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/"><span>2022年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2021/"><span>2021年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2020/"><span>2020年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2019/"><span>2019年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2018/"><span>2018年</span></a></li>
+
+              </ul>
+            </dd>
+
+            <dt class="show-pc-max"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2017年～2013年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2017/"><span>2017年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2016/"><span>2016年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2015/"><span>2015年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2014/"><span>2014年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2013/"><span>2013年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2012年～2008年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2012/"><span>2012年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2011/"><span>2011年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2010/"><span>2010年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2009/"><span>2009年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2008/"><span>2008年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2007年～2003年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2007/"><span>2007年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2006/"><span>2006年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2005/"><span>2005年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2004/"><span>2004年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2003/"><span>2003年</span></a></li>
+
+
+              </ul>
+            </dd>
+            <dt class="show-sp-tab"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div><div data-menu="3">
+      <div class="head"><a href="https://about.yahoo.co.jp/service/">サービス</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-2">
+          <dl>
+            <dt><span>メディア</span><button>Open</button></dt>
+            <dd>
+              <div class="col-set">
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/movie/">映画</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carnavi/">カーナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carview/">carview!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/calendar/">カレンダー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/kids/">きっず</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/gyao/">GYAO!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/creators/">クリエイターズプログラム</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/search/">検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/sponavi/">スポーツナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/chiebukuro/">知恵袋</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/tv/">テレビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/weather/">天気</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/news/">ニュース</a></li>
+                  </ul>
+                </div>
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/donation/">ネット募金</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/finance/">ファイナンス</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/emg/">防災速報</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/partner/">パートナー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/map/">MAP</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/mail/">メール</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/yahoojapan/">Yahoo! JAPANアプリ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/realtime/">リアルタイム検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/transit/">路線情報</a></li>
+                  </ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>コマース</span><button>Open</button></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/ebookjapan/">ebookjapan</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/fortune/">占い</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/yellmarket/">エールマーケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/card/">カード</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/game/">ゲーム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/shopping/">ショッピング</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/ticket/">チケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/travel/">トラベル</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/passmarket/">PassMarket</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/beauty/">BEAUTY</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/realestate/">不動産</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/premium/">プレミアム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypay/">PayPay</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypayfleamarket/">PayPayフリマ</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypaymall/">PayPayモール</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/auctions/">ヤフオク!</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>ビジネス</span><button>Open</button></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/datasolution/">データソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/place/">プレイス</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/marketing/">マーケティングソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/lodge/">LODGE</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/saigai-support/">災害支援</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div><div data-menu="4">
+      <div class="head"><a href="https://developer.yahoo.co.jp/">テクノロジー</a><button>Open</button></div>
+			<div class="body col-set">
+				<div class="col1-4">
+					<dl>
+						<dt><span>API・OSS</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://e.developer.yahoo.co.jp/dashboard/">アプリケーションの管理</a></li>
+								<li><a href="https://developer.yahoo.co.jp/start/">ご利用ガイド</a></li>
+								<li><a href="https://developer.yahoo.co.jp/sitemap/">APIドキュメント</a></li>
+								<li><a href="https://developer.yahoo.co.jp/yconnect/">Yahoo! ID連携</a></li>
+								<li><a href="https://developer.yahoo.co.jp/oss/">OSS</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>技術情報</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techblog.yahoo.co.jp/">Tech Blog</a></li>
+								<li><a href="https://www.docswell.com/user/ydnjp">登壇資料</a></li>
+								<li><a href="https://www.youtube.com/YahooDeveloperNetworkJP">登壇動画</a></li>
+								<li><a href="https://developer.yahoo.co.jp/labs/">Yahoo!ラボ</a></li>
+								<li><a href="https://randd.yahoo.co.jp/">Yahoo! JAPANの研究開発</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>イベント</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techconference.yahoo.co.jp/">Tech Conference</a></li>
+								<li><a href="https://hackday.yahoo.co.jp/">Hack Day</a></li>
+								<li><a href="https://hacku.yahoo.co.jp/">Hack U</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>コミュニティ</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://yj-meetup.connpass.com/">東京</a></li>
+								<li><a href="https://yahoo-nagoya.connpass.com/">名古屋</a></li>
+								<li><a href="https://yahoo-osaka.connpass.com/">大阪</a></li>
+								<li><a href="https://yahoo-fukuoka.connpass.com/">福岡</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div><div data-menu="5">
+      <div class="head"><a href="https://about.yahoo.co.jp/csr/">CSR</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/message/">トップメッセージ</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/en/csr/message/">TOP MESSAGE (English)</a></dt>
+            <dt><a href="https://www.z-holdings.co.jp/sustainability/stakeholder/" target="_blank">ESG（Zホールディングスサイトへ）</a></dt>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/effort/">Yahoo! JAPANが挑戦する<br>社会課題解決の取り組み</a><button>Open</button></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category01.html">#1 情報技術社会の発展</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category02.html">#2 災害・社会課題への支援</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category03.html">#3 誰もが活躍できる社会の実現</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category04.html">#4 持続可能な社会への挑戦</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/report/">課題解決特集</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/topics/20200409.html">新型コロナウイルス感染拡大に関する<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/tohokujyunen/">東日本大震災における<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/donationforcarbonneutral/">Yahoo! JAPAN 地域カーボンニュートラル<br>促進プロジェクト</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div><div data-menu="6">
+      <div class="head"><a href="https://about.yahoo.co.jp/hr/">採用情報</a><button>Open</button></div>
+			<div class="body col-set">
+				<div class="col1-6">
+					<dl>
+						<dt><span>MESSAGE</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/message/ceo.html">CEOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/message/cto.html">CTOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>ABOUT US</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/about/movie/">動画で知るヤフー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/linotice/">ヤフーの人・仕事・働き方を伝えるlinotice</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/about/infographics/">数字で見るヤフー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>SERVICE</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/service/">サービス・事業</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>INTERVIEW</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/interview/">社員インタビュー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>WORKPLACE</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/workstyle/">働き方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/office/">オフィス紹介</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/culture/">カルチャー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/training/">人財育成</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/welfare/">福利厚生</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/mypolaris/">クリエイター活動支援制度</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/faq/">FAQ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>RECRUITMENT</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/potential/">ポテンシャル採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/job-info/">キャリア採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/forengineers/">エンジニアの方へ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/disabilities/">障がいをお持ちの方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/gigpartner/">ギグパートナー募集</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/internship/">インターンシップ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div></div><div class="search" style="display: none;"><div data-menu="7" class="search">
+      <form role="search" class="clearfix" action="https://about.yahoo.co.jp/search/">
+        <input name="q" type="text" value="" placeholder="コーポレートサイトを検索" aria-label="検索キーワード">
+        <button type="submit">検索</button>
+        <input type="hidden" name="category">
+      </form>
+    </div></div></div><div class="hamburger-cover"></div>
+<!-- /.header-navigation -->
+<noscript>
+  <div class="notice_area">
+  <div class="box">
+  <p>現在JavaScriptの設定が無効になっています。</p>
+  <p>このページを利用するにはJavaScriptの設定を有効にしてください。</p>
+  <p class="notice_link"><a href="https://support.yahoo-net.jp/noscript">JavaScriptの設定を変更する方法はこちら</a></p>
+  </div>
+  </div>
+  </noscript>
+</div>
+
+
+
+        <div id="wrapper">
+          <div class="com_emg_info">
+<div id="info" class="info-header" style="display: block;">
+<div class="info-emergency">
+
+  
+
+  <div id="emg3"><!-- EMG3 noResult --></div>
+  <div id="emg2"><!-- EMG2 noResult --></div>
+  <div id="emg1"><!-- EMG noResult --></div>
+</div><!-- /info-emergency -->
+</div><!-- /info-header -->
+</div>
+
+            <main id="top" role="main">
+              <div class="page-header">
+<div class="inner">
+<ul class="breadcrumbs">
+
+
+<li><a href="https://about.yahoo.co.jp/">Home</a></li>
+
+
+    <li><a href="https://developer.yahoo.co.jp/">テクノロジー</a></li>
+
+      
+      
+
+        
+        
+            <li><a href="https://developer.yahoo.co.jp/sitemap/">APIドキュメント</a></li>
+        
+        
+
+        
+        
+        
+            
+            
+                <li><a href="https://developer.yahoo.co.jp/webapi/shopping/">ショッピング</a></li>
+            
+            
+
+
+            
+            
+            
+                
+                
+                <li>商品登録API</li>
+            
+            
+
+            
+            
+
+
+    
+
+
+    
+
+
+
+
+</ul>
+</div>
+</div><!-- /.page-header -->
+
+                <div class="main">
+
+                  <div class="common-section content">
+                    <div class="row">
+
+                      <div class="col-set">
+
+                        <div class="col3-4 yjdn-contents">
+                          
+                            <h1>商品登録API</h1>
+
+   <p>
+     商品データの登録・更新を行います。<br>
+     <span class="txt-red">※ フロント反映はしません。別途反映処理が必要です。</span>
+   </p>
+
+   <p class="mb10"><strong>変更履歴</strong></p>
+   <div class="box-scroll">
+   <p class="day">2022年04月08日</p>
+   <p>
+   下記リクエストパラメータの説明を修正しました。<br>
+    ・caption<br>
+    ・abstract<br>
+    ・additional1<br>
+    ・additional2<br>
+    ・additional3<br>
+    ・sp_additional<br>
+    </p>
+   <p class="day">2022年02月17日</p>
+   <p>
+   下記項目を削除しました。<br>
+   ・auc_postage<br>
+   ・auc_payment<br>
+   ・auc_condition<br>
+   ・auc_taxable<br>
+   ・auc_shipment<br>
+   ・auc_cod
+   </p>
+   <p class="day">2021年10月07日</p>
+   ・リクエストパラメータに「yamato_ff_flag」を追加しました。<br>
+   ・リクエストパラメータ「subcode_param」の説明を修正しました。<br>
+   <br>
+   <p class="day">2021年09月01日</p>
+   下記リクエストパラメータを追加しました。<br>
+   ・linegift_cooperation_flag（LINEギフト出品設定）<br>
+   ・linegift_item_commission（LINEギフト手数料）<br>
+   ・linegift_item_shortname（LINEギフト用商品名）<br>
+   ・linegift_item_image_url（LINEギフト用商品画像）
+   <p></p>
+   <p class="day">2021年06月03日</p>
+   <ul>
+   <li>リクエストパラメータに「item_image_urls」を追加しました。</li>
+   <li>下記リクエストパラメータの「説明」を更新しました。
+     <ul>
+       <li>caption</li>
+       <li>abstract</li>
+       <li>additional1</li>
+       <li>additional2</li>
+       <li>additional3</li>
+       <li>sp_additional</li>
+     </ul>
+   </li>
+   </ul>
+   <p>※赤字部分を追記しています。</p>
+
+</div>
+
+   <h2>リクエストURL</h2>
+   <div class="reqUrl">
+    <div class="gp">
+     <div class="format">本番環境</div>
+     <div class="url">https://circus.shopping.yahooapis.jp/ShoppingWebService/V1/editItem</div>
+    </div>
+    <div class="gp">
+     <div class="format">テスト環境</div>
+     <div class="url">https://test.circus.shopping.yahooapis.jp/ShoppingWebService/V1/editItem</div>
+    </div>
+   </div>
+   <p>
+   テスト用APIを利用したい場合は、<a href="https://e.developer.yahoo.co.jp/shopping/register">こちら</a>から利用申請をお願いします。
+   </p>
+
+
+
+   <!--//リクエストパラメータ start//-->
+   <h2>リクエストパラメータ</h2>
+   <p>
+    「<a href="https://developer.yahoo.co.jp/appendix/request/#POST%E3%81%A8%E3%81%AF">Web APIの使い方#POSTとは</a>」をご参照ください。
+   </p>
+
+   <p>
+   <b>ご注意ください</b><br>
+   <span class="txt-red">商品を登録・更新する場合、省略した項目はデフォルト値で上書きします。</span>
+   </p>
+
+   <table>
+  <tbody><tr align="center">
+   <th width="18%">パラメータ</th>
+   <th width="15%">値</th>
+   <th width="67%">説明</th>
+  </tr>
+  <tr>
+    <td valign="top">seller_id<br>（必須）</td>
+    <td valign="top">string</td>
+    <td valign="top">ストアアカウントを指定します。</td>
+  </tr>
+  <tr>
+    <td valign="top">item_code<br>（必須）</td>
+    <td valign="top">string</td>
+    <td valign="top">商品コード（半角英数字、ハイフンのみ。99文字以内）※検索対象</td>
+  </tr>
+  <tr>
+    <td valign="top">path<br>（必須）</td>
+    <td valign="top">string</td>
+    <td valign="top">
+ストアカテゴリのパス（カテゴリ名のコロン区切り）を指定します（カテゴリ名は全角20文字以内、カテゴリ階層は8階層以内）。<br>
+複数指定する場合は改行コード（%0D%0A）で区切ってください。<br>
+最初に書いたパスが実体となり、残りはリンクとなります。<br>
+※「ストアカテゴリ下の商品の並び順」は、既存の商品の場合はそのままで、新規商品の場合は最後尾の商品の値に+1したものになります。
+  </td>
+  </tr>
+  <tr>
+    <td valign="top">name<br>（必須）</td>
+    <td valign="top">string</td>
+    <td valign="top">商品名（全角75文字以内）※検索対象</td>
+  </tr>
+  <tr>
+    <td valign="top">product_category</td>
+    <td valign="top">integer</td>
+    <td valign="top">YahooショッピングカテゴリID（半角数字のみ。10文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">original_price</td>
+    <td valign="top">integer</td>
+    <td valign="top">定価（半角数字のみ。8文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">price<br>（必須）</td>
+    <td valign="top">integer</td>
+    <td valign="top">通常販売価格（半角数字のみ。8文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">sale_price</td>
+    <td valign="top">integer</td>
+    <td valign="top">特価（半角数字のみ。8文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">member_price</td>
+    <td valign="top">integer</td>
+    <td valign="top">会員向け価格（半角数字のみ。8文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">headline</td>
+    <td valign="top">string</td>
+    <td valign="top">キャッチコピー（全角30文字以内、HTML不可）※検索対象</td>
+  </tr>
+  <tr>
+    <td valign="top">item_image_urls</td>
+    <td valign="top">string</td>
+    <td valign="top">商品画像・商品詳細画像に利用する画像URL<br>
+    各画像はセミコロン(;)で区切る。<br>
+    解除したい場合は「0」を入力する。<br>
+    商品画像・商品詳細画像・追加画像のURLのみ入力可</td>
+  </tr>
+  <tr>
+    <td valign="top">caption</td>
+    <td valign="top">string</td>
+    <td valign="top">商品説明（全角5,000文字以内、HTML可）<br>
+    <span class="txt-red">※2022年5月以降、商品画像・商品詳細画像のURLは不可となります。追加画像をご利用ください。出店者様ごとに順次リリースになりますので、リリース日について告知ページにてご確認ください。</span></td>
+  </tr>
+  <tr>
+    <td valign="top">abstract</td>
+    <td valign="top">string</td>
+    <td valign="top">ひと言コメント（全角500文字以内、HTML可）<br>
+    <span class="txt-red">※2022年5月以降、商品画像・商品詳細画像のURLは不可となります。追加画像をご利用ください。出店者様ごとに順次リリースになりますので、リリース日について告知ページにてご確認ください。</span></td>
+  </tr>
+  <tr>
+    <td valign="top">explanation</td>
+    <td valign="top">string</td>
+    <td valign="top">商品情報（全角500文字以内、HTML不可）。改行可。※検索対象</td>
+  </tr>
+  <tr>
+    <td valign="top">additional1</td>
+    <td valign="top">string</td>
+    <td valign="top">フリースペース1（全角5,000文字以内、HTML可）<br>
+    <span class="txt-red">※2022年5月以降、商品画像・商品詳細画像のURLは不可となります。追加画像をご利用ください。出店者様ごとに順次リリースになりますので、リリース日について告知ページにてご確認ください。</span></td>
+  </tr>
+  <tr>
+    <td valign="top">additional2</td>
+    <td valign="top">string</td>
+    <td valign="top">フリースペース2（全角5,000文字以内、HTML可）<br>
+    <span class="txt-red">※2022年5月以降、商品画像・商品詳細画像のURLは不可となります。追加画像をご利用ください。出店者様ごとに順次リリースになりますので、リリース日について告知ページにてご確認ください。</span></td>
+  </tr>
+  <tr>
+    <td valign="top">additional3</td>
+    <td valign="top">string</td>
+    <td valign="top">フリースペース3（全角5,000文字以内、HTML可）<br>
+    <span class="txt-red">※2022年5月以降、商品画像・商品詳細画像のURLは不可となります。追加画像をご利用ください。出店者様ごとに順次リリースになりますので、リリース日について告知ページにてご確認ください。</span></td>
+  </tr>
+  <tr>
+    <td valign="top">sp_additional</td>
+    <td valign="top">string</td>
+    <td valign="top">スマートフォン用フリースペース（全角5,000文字以内、画像込みの総容量2000KB以内、HTML可）<br>
+    <span class="txt-red">※2022年5月以降、商品画像・商品詳細画像のURLは不可となります。追加画像をご利用ください。出店者様ごとに順次リリースになりますので、リリース日について告知ページにてご確認ください。</span></td>
+  </tr>
+  <tr>
+    <td valign="top">relevant_links</td>
+    <td valign="top">string</td>
+    <td valign="top">おすすめ商品の商品コード（最大20個）。<br>
+区切り文字は「,（コンマ）」</td>
+  </tr>
+  <tr>
+    <td valign="top">cart_related_items</td>
+    <td valign="top">string</td>
+    <td valign="top">カート内関連商品コード（最大3個）。<br>
+区切り文字は「,（コンマ）」</td>
+  </tr>
+  <tr>
+    <td valign="top">ship_weight</td>
+    <td valign="top">integer</td>
+    <td valign="top">重量（半角数字のみ。7文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">taxable</td>
+    <td valign="top">integer<br>（デフォルト : 1）</td>
+    <td valign="top">課税対象<br>
+1 : 課税<br>
+0 : 非課税</td>
+  </tr>
+  <tr>
+    <td valign="top">taxrate_type</td>
+    <td valign="top">float<br>（デフォルト : 0.1）</td>
+    <td valign="top">軽減税率コード<br>
+0.1 : 通常税率(10%)<br>
+0.08:軽減税率(8%)</td>
+  </tr>
+  <tr>
+    <td valign="top">release_date</td>
+    <td valign="top">string</td>
+    <td valign="top">発売日（半角数字のみ。YYYYMMDD形式）</td>
+  </tr>
+  <tr>
+    <td valign="top">sale_period_start</td>
+    <td valign="top class=txt">string</td>
+    <td valign="top class=txt">販売開始（半角数字のみ。YYYYMMDDHHmm形式）</td>
+  </tr>
+  <tr>
+    <td valign="top">sale_period_end</td>
+    <td valign="top class=txt">string</td>
+    <td valign="top class=txt">販売終了日時（半角数字のみ。YYYYMMDDHHmm形式）<br>※「2099年12月31日23時59分」まで設定可能</td>
+  </tr>
+  <tr>
+    <td valign="top">sale_limit</td>
+    <td valign="top">integer</td>
+    <td valign="top">購入数制限（半角数字のみ。1～999を入力）</td>
+  </tr>
+  <tr>
+    <td valign="top">sp_code</td>
+    <td valign="top">integer</td>
+    <td valign="top">販促コード（半角数字のみ。10文字）</td>
+  </tr>
+  <tr>
+    <td valign="top">point_code</td>
+    <td valign="top">string</td>
+    <td valign="top">ポイント倍率コード<br>
+1 : 1倍<br>
+2 : 2倍<br>
+3 : 3倍<br>
+4 : 4倍<br>
+5 : 5倍<br>
+6 : 6倍<br>
+7 : 7倍<br>
+8 : 8倍<br>
+9 : 9倍<br>
+10 : 10倍<br>
+11 : 11倍<br>
+12 : 12倍<br>
+13 : 13倍<br>
+14 : 14倍<br>
+15 : 15倍<br>
+<s>X15 : ダイヤモンド15倍 プラチナ10倍 ゴールド7倍 シルバー5倍 ブロンズ3倍</s><br>
+<s>X10 : ダイヤモンド10倍 プラチナ7倍 ゴールド5倍 シルバー3倍 ブロンズ2倍</s><br>
+<s>X07 : ダイヤモンド7倍 プラチナ6倍 ゴールド5倍 シルバー4倍 ブロンズ3倍</s><br>
+<s>Z15 : ダイヤモンド15倍 プラチナ10倍</s><br>
+<s>Z10 : ダイヤモンド10倍 プラチナ5倍</s><br>
+<s>X03 : ブロンズ以上3倍</s><br>
+<s>Y05 : シルバー以上5倍</s><br>
+<s>Y03 : シルバー以上3倍</s><br>
+<s>D05 : ダイヤモンド限定5倍</s><br>
+（2020/09/09 更新）<br>
+<span class="txt-red">
+X15～D05は、2020/09/17（木）で廃止になります。<br>
+リクエストとして指定した場合空欄として保存されます。
+</span>
+</td>
+  </tr>
+  <tr>
+    <td valign="top">meta_desc</td>
+    <td valign="top">string</td>
+    <td valign="top">META description（全角80文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">display</td>
+    <td valign="top">integer<br>（デフォルト : 1）</td>
+    <td valign="top">ページ公開<br>
+1 : 公開<br>
+0 : 非公開</td>
+  </tr>
+  <tr>
+    <td valign="top">hidden_page</td>
+    <td valign="top">string<br>（デフォルト:0::）</td>
+    <td valign="top">隠しページ設定<br>
+hidden_flag（1 : 隠しページ、0 : 通常）</td>
+  </tr>
+  <tr>
+    <td valign="top">template</td>
+    <td valign="top">string</td>
+    <td valign="top">
+    <b><span class="txt-red">※新ストアデザインを適用後、templateの指定は無効となります。</span></b><br>
+    デザインテンプレート（IT01〜IT12）<br>※ストアクリエイターPro＞商品・画像・在庫＞ストアデザイン＞商品ページテンプレート設定の番号</td>
+  </tr>
+  <tr>
+    <td valign="top">brand_code</td>
+    <td valign="top">integer</td>
+    <td valign="top">ブランドコード（半角数字のみ。10文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top"><s>yahoo_product_code</s></td>
+    <td valign="top"><s>string</s></td>
+    <td valign="top"><span class="txt-red">Y!ショッピング製品コード廃止のため削除</span><br><s>Yahoo!ショッピング製品コード（半角英数字のみ。32文字）</s></td>
+  </tr>
+  <tr>
+    <td valign="top">product_code</td>
+    <td valign="top">string</td>
+    <td valign="top">製品コード（半角文字のみ。50文字以内）※検索対象</td>
+  </tr>
+  <tr>
+    <td valign="top">jan</td>
+    <td valign="top">integer</td>
+    <td valign="top">JAN / ISBN コード（半角英数字、ハイフンのみ。17文字以内）※検索対象</td>
+  </tr>
+  <tr>
+    <td valign="top">delivery</td>
+    <td valign="top">integer<br>（デフォルト : 0）</td>
+    <td valign="top">送料無料設定<br>
+0 : なし<br>
+1 : 無料<br>
+2 : 送料込み （※送料込みは送料無料として扱うことになったため、2を指定した場合1として保存されます）<br>
+3 : 条件付送料無料</td>
+  </tr>
+  <tr>
+    <td valign="top"><s>astk_code</s></td>
+    <td valign="top"><s>integer<br>（デフォルト : 0）</s></td>
+    <td valign="top"><span class="txt-red"><b>現在は使用されておりません。</b></span><br><s>きょうつく／あすつくコード<br>
+0 : 非対応<br>
+1 : あすつく<br>
+2 : きょうつく</s></td>
+  </tr>
+  <tr>
+    <td valign="top">condition</td>
+    <td valign="top">integer<br>（デフォルト : 0）</td>
+    <td valign="top">商品の状態<br>
+0 : 新品<br>
+1 : 中古 （※古物免許を登録していないと中古に設定することはできません）<br>
+2 : 新品：ヤフオク併売<br>
+　※ヤフオク併売プラン限定<br>
+3 : 中古：未使用<br>
+4 : 中古：未使用に近い<br>
+5 : 中古：目立った傷や汚れなし<br>
+6 : 中古：やや傷や汚れあり<br>
+7 : 中古：傷や汚れあり<br>
+8 : 中古：全体的に状態が悪い</td>
+  </tr>
+  <tr>
+    <td valign="top">spec1</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック１<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。
+</td>
+  </tr>
+  <tr>
+    <td valign="top">spec2</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック２<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec3</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック３<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec4</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック４<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec5</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック５<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec6</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック６<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec7</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック７<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec8</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック８<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec9</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック９<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">spec10</td>
+    <td valign="top">string</td>
+    <td valign="top">スペック１０<br>
+項目と値をコロン（:）で区切る<br>
+複数の値がある場合はその後にパイプ（|）で区切る<br>
+項目は半角数字10文字、値は半角数字9文字以内<br><br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">options</td>
+    <td valign="top">string</td>
+    <td valign="top">
+※<span class="txt-red">半角スペース、半角記号の&lt;&gt;;:&amp;=#"\は指定不可</span><br>
+<br>
+全体：<br><br>
+(option_definition)|(option_definition)<br>
+オプションの区切りは「|（パイプ）」<br>
+オプションはインスクリプションと合わせて最大20個 <br>
+<br>
+option_definition：<br>
+<br>
+(option_name_definition)#(option_values_definition) <br>
+オプションとオプション値の区切りは「#（シャープ）」<br>
+<br>
+option_name_definition：<br>
+<br>
+スペック無しの場合　　　 option_name<br>
+スペックを指定する場合　option_name:option_spec<br>
+option_name（オプション名。全角28文字以内）<br>
+option_spec（オプションに指定するスペックID。半角数字10文字以内）<br>
+オプション名とスペックとの区切りは「:（コロン）」<br>
+<br>
+option_values_definition：<br>
+<br>
+(option_value_definition),(option_value_definition),・・・<br>
+オプション値の区切りは 「,（カンマ）」<br>
+オプション値は各オプション項目ごとに最大100個<br>
+<br>
+ option_value_definition：<br>
+- スペック無しの場合 option_value<br>
+- スペックを指定する場合 option_value:option_value_spec<br>
+- 選択不可オプションを設定する場合 =option_value:option_value_spec<br>
+  - オプション値の先頭に「=（イコール）」を指定<br>
+- オプション価格を指定する場合 option_value:option_value_spec;oprion_charge<br>
+  - oprion_charge（オプション価格）<br>
+  - オプション値、スペックとオプション価格との区切りは「;（セミコロン）」<br>
+<br>
+※半角スペース、半角記号の&lt;&gt;;:&amp;=#"\は指定不可<br>
+※スペックはYahooショッピングカテゴリに紐づいた項目の中から設定する仕様なので、 Yahooショッピングカテゴリが設定されていなかったり、設定されているYahooショッピングカテゴリに紐づいていないスペックを指定するとエラーとなります。
+  </td>
+  </tr>
+  <tr>
+    <td valign="top">inscriptions</td>
+    <td valign="top">string</td>
+    <td valign="top">オプションとして、購入時に文字入力させたい場合に利用します。例 : 商品の名入れなど<br>
+name（インスクリプション名。全角28文字以内）<br>
+length（インスクリプションの文字数制限。1～60を指定）<br>
+<br>
+name:length,name:length<br>
+インスクリプション名と文字数制限の区切りは「:（コロン）」、インスクリプションのセットの区切りは「,（コンマ）」<br>
+インスクリプションはオプション項目と合わせて最大20個<br>
+<br>
+※半角スペース、半角記号の&lt;&gt;;:&amp;=#"\は指定不可
+</td>
+  </tr>
+  <tr>
+    <td valign="top">subcodes</td>
+    <td valign="top">string</td>
+    <td valign="top">
+option（オプション名。全角28文字以内）<br>
+option_value（オプション値。全角28文字以内）<br>
+subcode（個別商品コード。半角英数字、ハイフンのみ。99文字以内）<br>
+<br>
+option:option_value#option:option_value=subcode|option:option_value#option:option_value=subcode<br>
+オプションとオプション値の区切りは「:（コロン）」、オプションセットの区切りは「#（シャープ）」、サブコードセットの区切りは「|（パイプ）」<br>
+個別商品コードの前には「=（イコール）」を付ける<br>
+optionsに存在するオプションのみ指定可能、最大100個まで<br>
+<br>
+※サブコード管理したいオプションのみ、subcodesに指定します。指定したオプションに関しては、全ての組み合わせに対してサブコードを指定する必要があります。 <br>
+※subcodesは店舗内ユニークの値にする必要があります。<br>
+また、店予約済みページIDや商品コードと同じ値で登録することはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <s>original-price-evidence</s><br>
+      original_price_evidence<br>
+      <span class="txt-red">※2016年6月1日以降指定可能になります</span>
+    </td>
+    <td valign="top">string</td>
+    <td valign="top">エビデンスURL（URL形式）</td>
+  </tr>
+  <tr>
+    <td valign="top">lead_time_instock</td>
+    <td valign="top">integer</td>
+    <td valign="top">発送日情報管理番号（在庫があり時に表示したい発送日表示文言の設定）</td>
+  </tr>
+  <tr>
+    <td valign="top">lead_time_outstock</td>
+    <td valign="top">integer</td>
+    <td valign="top">発送日情報管理番号（在庫が切れ時に表示したい発送日表示文言の設定）</td>
+  </tr>
+  <tr>
+    <td valign="top">subcode_param</td>
+    <td valign="top">string</td>
+    <td valign="top">サブコード名1=lead_time_instock:在庫あり発送日の値#lead_time_outstock:在庫切れ発送日の値#pick_and_delivery_code:サブコード名1に紐付けるバーコード情報#yamato_ff_flag:設定値|サブコード名2=lead_time_instock:在庫あり発送日の値#lead_time_outstock:在庫切れ発送日の値#pick_and_delivery_code:サブコード名2に紐付けるバーコード情報#yamato_ff_flag:設定値<br>
+    <br>
+    項目と値をコロン（:）で区切る<br>
+    複数のサブコードがある場合はその後にパイプ（|）で区切る<br>
+    在庫あり発送日の指定と在庫切れ発送日の値とサブコードに紐づけるバーコード情報を「#」で区切る<br>
+    ※サブコード管理したいオプションのみ、指定します。<br>
+    指定したオプションに関しては、全ての組み合わせに対してサブコードを指定する必要があります。<br>
+    ※サブコードに紐付けるバーコード情報についてはヤマトピック&amp;デリバリー専用項目<br>
+    ※サブコードに紐付けるヤマトフルフィルメントフラグについては、ヤマトフルフィルメント専用項目。ご契約のストアで、連携済み商品のみ指定可能
+  </td></tr>
+  <tr>
+    <td valign="top">keep_stock</td>
+    <td valign="top">integer</td>
+    <td valign="top">注文者からのキャンセル時、在庫を元に戻す設定<br>0:キャンセル時在庫を元にさない<br>1:キャンセル時在庫を元に戻す(初期値)</td>
+  </tr>
+  <tr>
+    <td valign="top">postage_set</td>
+    <td valign="top">integer</td>
+    <td valign="top">商品に紐づく配送グループ管理番号（半角数字のみ。1～20を入力）<br>デフォルト : 1</td>
+  </tr>
+  <tr>
+    <td valign="top">subcode_images</td>
+    <td valign="top">string(json)</td>
+    <td valign="top">subcode_imagesのjsonをリクエストパラメータに設定<br>
+                                 ※詳細は下記「サンプルリクエスト」を参照</td>
+  </tr>
+  <tr>
+    <td valign="top">supplier_type</td>
+    <td valign="top">integer</td>
+    <td valign="top">販売ルート<br>
+                                 1：選択なし<br>
+                                 2：正規販売・輸入代理店品<br>
+                                 3：並行輸入品、他<br>
+                                 デフォルトの設定は「選択なし」になります。<br>
+                                 「選択なし」「並行輸入品、他」はPayPayモール内では非表示になります。<br>
+                                 非表示対象商材の場合はPayPayモールストア内検索、Yahoo!ショッピングでは表示されます。</td>
+  </tr>
+  <tr>
+    <td valign="top">y_shopping_display_flag</td>
+    <td valign="top">integer</td>
+    <td valign="top">Yahoo! ショッピング検索に表示<br>
+                                 1：公開<br>
+                                 0：非公開<br>
+                                 Yahoo!ショッピング検索やレコメンドに商品を表示するか否かを入力<br>
+                                 ※ストア内検索には表示されます。</td>
+  </tr>
+  <tr>
+    <td valign="top">is_drug</td>
+    <td valign="top">integer</td>
+    <td valign="top">第1類医薬品<br>通常商品：0<br>第1類医薬品：1<br>空欄の場合は「通常商品」</td>
+  </tr>
+  <tr>
+    <td valign="top">auc_store_keyword</td>
+    <td valign="top">string</td>
+    <td valign="top">ヤフオク用ストア検索用キーワード<br>全角20文字（半角40文字）以内</td>
+  </tr>
+  <tr>
+    <td valign="top">auc_pref_code</td>
+    <td valign="top">string</td>
+    <td valign="top">ヤフオク用発送元地域<br>01～48</td>
+  </tr>
+  <tr>
+    <td valign="top"><del>auc_postage</del></td>
+    <td valign="top"><del>string</del></td>
+    <td valign="top"><del>ヤフオク用送料負担<br>buyer:落札者負担<br>seller:出品者負担</del></td>
+  </tr>
+  <tr>
+    <td valign="top"><del>auc_payment</del></td>
+    <td valign="top"><del>string</del></td>
+    <td valign="top"><del>ヤフオク用決済方法（落札ナビで設定）<br>A1〜A6:銀行振込<br>B1:現金書留、B2:振替サービス、B3:為替サービス<br>C1:商品代引<br>D1〜D3:その他<br>複数指定する場合は、「_」でつなぐ</del></td>
+  </tr>
+  <tr>
+    <td valign="top"><del>auc_condition</del></td>
+    <td valign="top"><del>string</del></td>
+    <td valign="top"><del>ヤフオク用商品状態<br>used0:未使用<br>used10:未使用に近い<br>used20:目立った傷や汚れなし<br>used40:やや傷や汚れあり<br>used60:傷や汚れあり<br>used80:全体的に状態が悪い</del></td>
+  </tr>
+  <tr>
+    <td valign="top"><del>auc_taxable</del></td>
+    <td valign="top"><del>string</del></td>
+    <td valign="top"><del>ヤフオク用消費税（落札ナビで設定）<br>T1〜T9</del></td>
+  </tr>
+  <tr>
+    <td valign="top"><del>auc_shipment</del></td>
+    <td valign="top"><del>string</del></td>
+    <td valign="top"><del>ヤフオク用配送方法・送料（落札ナビで設定）<br>A1〜A30:全国一律<br>B1~B30:都道府県別<br>C1〜C10:金額別指定<br>D1〜D10:個数別指定<br>X:(金額) : 個別の送料<br>Z or 空欄: 未指定<br>複数指定する場合は、「_」でつなぐ</del></td>
+  </tr>
+  <tr>
+    <td valign="top"><del>auc_cod</del></td>
+    <td valign="top"><del>string</del></td>
+    <td valign="top"><del>ヤフオク用代引き手数料指定（落札ナビで設定）<br>A1:全国一律<br>B1〜B10:都道府県別設定<br>C1~C10:金額別設定<br>X:(金額): 個別の代引き手数料<br>Z or 空欄: 未指定</del></td>
+  </tr>
+  <tr>
+    <td valign="top">auc_bcid</td>
+    <td valign="top">string</td>
+    <td valign="top">ヤフオク用管理番号<br>20桁までの半角英数字、半角記号（ #　&amp;　(　)　-　&lt;　&gt;　.　/　_ のみ利用可）</td>
+  </tr>
+  <tr>
+    <td valign="top">auc_category</td>
+    <td valign="top">string</td>
+    <td valign="top">ヤフオク用カテゴリ</td>
+  </tr>
+  <tr>
+    <td valign="top">store-in-stock</td>
+    <td valign="top">string</td>
+    <td valign="top">実店舗在庫ありの店舗コード<br>
+                                 半角英数字のみ、5000桁以内。半角コロン（:）でつなぐ。<br>
+                                 「店頭受取」で設定したすべての店舗に「実店舗在庫あり」と表示したい場合、半角「*」を入力<br>
+                                 ※商品登録APIでは更新されません。更新される場合は、<a href="https://developer.yahoo.co.jp/webapi/shopping/real/">店頭在庫関連API</a>をご利用ください。
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">store-in-stock-few</td>
+    <td valign="top">string</td>
+    <td valign="top">実店舗在庫わずかの店舗コード<br>
+                                 半角英数字のみ、5000桁以内。半角コロン（:）でつなぐ。<br>
+                                 「店頭受取」で設定したすべての店舗に「実店舗在庫わずか」と表示したい場合、半角「*」を入力<br>
+                                 ※商品登録APIでは更新されません。更新される場合は、<a href="https://developer.yahoo.co.jp/webapi/shopping/real/">店頭在庫関連API</a>をご利用ください。
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">store-in-stockupdate</td>
+    <td valign="top">string</td>
+    <td valign="top">実店舗在庫更新日時<br>
+                                 半角数字のみ。YYYYMMDDHHMM形式<br>
+                                 実店舗在庫ありの店舗コード、実店舗在庫わずかの店舗コードのいずれかを入力する場合必須<br>
+                                 ※商品登録APIでは更新されません。更新される場合は、<a href="https://developer.yahoo.co.jp/webapi/shopping/real/">店頭在庫関連API</a>をご利用ください。
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">pick_and_delivery_code</td>
+    <td valign="top">string</td>
+    <td valign="top"><b>※ヤマトピック&amp;デリバリー専用項目</b><br>
+バーコード情報<br>
+ヤマトピック&amp;デリバリー対象商品は必須です<br>
+20文字以内<br>
+半角数字、半角英字（小文字、大文字）、半角記号<br>
+（  -  .  $  /  +  %  ＊アスタリスク）が使用可能です。</td>
+  </tr>
+  <tr>
+    <td valign="top">pick_and_delivery_transport_rule_type</td>
+    <td valign="top">integer</td>
+    <td valign="top"><b>※ヤマトピック&amp;デリバリー専用項目</b><br>
+荷扱い情報<br>
+0：なし<br>
+1：ナマモノ<br>
+2：ワレモノ<br>
+3：精密機械<br>
+4：下積厳禁<br>
+5：天地無用</td>
+  </tr>
+  <tr>
+    <td valign="top">yamato_ff_flag</td>
+    <td valign="top">integer</td>
+    <td valign="top">0：対象外<br>
+    1：対象<br>
+    ※ヤマトフルフィルメントフラグについては、ヤマトフルフィルメント専用項目。ご契約のストアで、連携済み商品のみ指定可能
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">item_tag</td>
+    <td valign="top">string</td>
+    <td valign="top">商品をグルーピングする場合に入力<br>
+    項目は半角英数字、小文字のみ、10文字まで。<br>
+    1商品につき「商品タグ」設定は1つまで。
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">reserve_price</td>
+    <td valign="top">integer</td>
+    <td valign="top">自動切替設定：通常販売価格<br>半角数字のみ（8文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">reserve_sale_price</td>
+    <td valign="top">integer</td>
+    <td valign="top">自動切替設定：セール価格<br>半角数字のみ（8文字以内）</td>
+  </tr>
+  <tr>
+    <td valign="top">reserve_member_price</td>
+    <td valign="top">integer</td>
+    <td valign="top">自動切替設定：Y!プレミアム会員向け価格<br>半角数字のみ（8文字以内）<br>「予約通常販売価格」＞「予約セール価格」＞「予約プレミアム会員向け価格」でない場合エラーとなります。</td>
+  </tr>
+  <tr>
+    <td valign="top">reserve_selling_period_start</td>
+    <td valign="top">string</td>
+    <td valign="top">自動切替設定：切替期間（開始日）<br>半角数字のみ。YYYYMMDDHH(MM)形式</td>
+  </tr>
+  <tr>
+    <td valign="top">reserve_selling_period_end</td>
+    <td valign="top">string</td>
+    <td valign="top">自動切替設定：切替期間（終了日）<br>半角数字のみ。YYYYMMDDHH(MM)形式</td>
+  </tr>
+  <tr>
+    <td valign="top">linegift_cooperation_flag<br>※LINEギフト出店者様限定</td>
+    <td valign="top">integer</td>
+    <td valign="top">
+    0: 出品しない（初期値）<br>
+    1: 出品する<br>
+    ※注意点<br>
+    ・「ページ公開設定」が「非公開」の商品は出品設定がされていてもLINEギフトに掲載されません。<br>
+    ・「隠しページ設定」が「隠しページ」の商品はLINEギフト上でも検索やトップページには掲載されませんが商品ページへのアクセスは可能（注文可能）となります。
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">linegift_item_commission<br>※LINEギフト出店者様限定</td>
+    <td valign="top">integer</td>
+    <td valign="top">半角数字のみ、8文字以内<br>
+    全国一律送料、ギフト梱包料など諸経費を含めた金額をご設定ください。<br>
+    ※商品価格にLINEギフト手数料を加算した金額がLINEギフトでの販売価格となります。
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">linegift_item_shortname<br>※LINEギフト出店者様限定</td>
+    <td valign="top">string</td>
+    <td valign="top">全角、半角20文字以内<br>※半角カナを利用された場合、LINEギフトページ上では全角に変換されて表示されます。<br>LINEギフト出品設定が1: 出品するの場合は必須</td>
+  </tr>
+  <tr>
+    <td valign="top">linegift_item_image_url<br>※LINEギフト出店者様限定</td>
+    <td valign="top">string</td>
+    <td valign="top">
+    LINEギフトで使用する商品画像のURL<br>
+    LINEギフト出品設定が1: 出品するの場合は必須<br>
+    Yahoo!ショッピング 追加画像の仕様と同様となります。詳細は下記マニュアルをご参照ください。<br>
+    <a href="https://store-info.yahoo.co.jp/shopping/toolmanual/manage/d/225.html" target="_blank" rel="noopener">ストアクリエイタProマニュアル - 画像管理の概要</a><br>
+    ファイル形式：拡張子は.gif/.jpg/.jpe/.jpeg /.pngのみ<br>
+    ファイルサイズ：500キロバイト以下<br>
+    ファイル名：半角英数字、ハイフン（ - ）、アンダーバー（ _ ）、ピリオド（ . ）のみ使用可<br>
+    画像サイズ：縦1250ピクセル、横1250ピクセル以内<br>
+    URL形式：https://shopping.c.yimg.jp/lib/ストアアカウント/ファイル名.拡張子
+    </td>
+  </tr>
+</tbody></table>
+
+
+   <p class="mb10">サンプルリクエストURL</p>
+   <pre><code class="lang-plaintext hljs">https://circus.shopping.yahooapis.jp/ShoppingWebService/V1/editItem</code></pre>
+   <p class="mb10">サンプルリクエスト</p>
+   <pre><code class="lang-plaintext hljs">POST /ShoppingWebService/V1/editItem HTTP/1.1
+     Host: circus.shopping.yahooapis.jp
+     Authorization: Bearer &lt;アクセストークン&gt;
+
+     seller_id=hmv&amp;item_code=960977-001&amp;name=%BE%A6%C9%CA%A3%B1&amp;path=%A5%AB%A5%C6%A5%B4%A5%EA%A3%B1&amp;product_category=1485&amp;price=100</code></pre>
+   <!--//リクエストパラメータ end//-->
+
+   <p class="mb10">サンプルリクエスト</p>
+   <pre><code class="lang-plaintext hljs">POST /ShoppingWebService/V1/editItem HTTP/1.1
+     Host: circus.shopping.yahooapis.jp
+     Authorization: Bearer &lt;アクセストークン&gt;
+
+     seller_id=test-store&amp;item_code=960977-001&amp;name='swsapi-vrimg-test-item004'&amp;product_category=1485&amp;price=100&amp;subcodes='色:ネイビー#サイズ:S=subcodetest-1|色:ネイビー#サイズ:M=subcodetest-2|色:グレー#サイズ:S=subcodetest-3|色:グレー#サイズ:M=subcodetest-4'&amp;subcode_images='{"subcodetest-1":{"urls":["https://shopping.c.yimg.jp/lib/test-store/image.jpeg"],"main_flag":1},"subcodetest-2":{"urls":["https://shopping.c.yimg.jp/lib/test-store/image2.jpeg"],"main_flag":0}}'</code></pre>
+
+   <!--//サンプルコード start//-->
+   <!--//サンプルコード end//-->
+
+   <!--//レスポンスフィールド start//-->
+   <h2>レスポンスフィールド</h2>
+   <table>
+  <tbody><tr>
+    <th nowrap="">フィールド</th>
+    <th>説明</th>
+  </tr>
+  <tr>
+    <td valign="top">/ResultSet</td>
+    <td valign="top">クエリーレスポンスのすべてを含みます。</td>
+  </tr>
+  <tr>
+    <td valign="top">/ResultSet/Result</td>
+    <td valign="top">各個別レスポンスを含みます。</td>
+  </tr>
+  <tr>
+    <td valign="top">/ResultSet/Result/Status</td>
+    <td valign="top">更新結果（このフォーマットではOKのみ）</td>
+  </tr>
+  <tr>
+    <td valign="top">/ResultSet/Result/Warning</td>
+    <td valign="top">警告情報</td>
+  </tr>
+  <tr>
+    <td valign="top">/ResultSet/Result/Warning/Target</td>
+    <td valign="top">どの項目で警告が生じたかです。</td>
+  </tr>
+  <tr>
+    <td valign="top">/ResultSet/Result/Warning/Code</td>
+    <td valign="top">エラーコード</td>
+  </tr>
+  <tr>
+    <td valign="top">/ResultSet/Result/Warning/Message</td>
+    <td valign="top">警告メッセージ</td>
+  </tr>
+</tbody></table>
+
+   <!--//レスポンスフィールド end//-->
+
+
+   <!--//サンプルレスポンス start//-->
+   <h2>サンプルレスポンス</h2>
+   <pre class="height"><code class="lang-xml hljs"><span class="hljs-comment">&lt;!-- •サンプルレスポンス（警告なし） --&gt;</span>
+
+<span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ResultSet</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Result</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>OK<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Result</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ResultSet</span>&gt;</span>
+
+
+<span class="hljs-comment">&lt;!-- •サンプルレスポンス（警告あり ※この場合でも保存処理は実行されます）--&gt;</span>
+
+<span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ResultSet</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Result</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>OK<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Warning</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Target</span>&gt;</span>additional1<span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>it-00001<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>外部リンクを削除しました。<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Warning</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Warning</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Target</span>&gt;</span>additional1<span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>it-00002<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>商品説明はタグ閉じされていません。<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Warning</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Result</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ResultSet</span>&gt;</span>
+
+
+<span class="hljs-comment">&lt;!-- •サンプルレスポンス （エラーあり ※この場合、保存処理は実行されません）--&gt;</span>
+
+<span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ResultSet</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Result</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>NG<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Error</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Target</span>&gt;</span>path<span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>it-01001<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>パスは最大8階層です。<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Error</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Error</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Target</span>&gt;</span>path<span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>it-01002<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>パスは全角20文字（半角40文字）以内で入力してください。<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Error</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Warning</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Target</span>&gt;</span>additional1<span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>it-00001<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>外部リンクを削除しました。<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Warning</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Result</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ResultSet</span>&gt;</span></code></pre>
+   <!--//サンプルレスポンス end//-->
+
+
+   <!--//エラー start//-->
+   <h2>エラー</h2>
+   <p>商品登録APIはYahoo! JAPAN Web APIに共通の<a href="https://developer.yahoo.co.jp/appendix/errors.html">エラーメッセージおよびコード</a>を返します。</p>
+   <p class="mb10">商品系API共通エラーコード</p>
+<table>
+  <tbody><tr align="center">
+   <th width="12%">コード</th>
+   <th width="15%">HTTPステータスコード</th>
+   <th width="73%">説明</th>
+  </tr>
+  <tr>
+    <td valign="top">ed-00000</td>
+    <td valign="top">404</td>
+    <td valign="top">ページが見つかりません。</td>
+  </tr>
+  <tr>
+    <td valign="top">ed-00001</td>
+    <td valign="top">500</td>
+    <td valign="top">システムエラーが発生しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">ed-00002</td>
+    <td valign="top">503</td>
+    <td valign="top">サーバがメンテナンス中です。</td>
+  </tr>
+  <tr>
+    <td valign="top">ed-00003</td>
+    <td valign="top">400</td>
+    <td valign="top">ストアアカウントが指定されていません。</td>
+  </tr>
+  <tr>
+    <td valign="top">ed-00004</td>
+    <td valign="top">400</td>
+    <td valign="top">ストアアカウントが存在しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">ed-00005</td>
+    <td valign="top">400</td>
+    <td valign="top">ストアアカウントの指定が不正です。</td>
+  </tr>
+  <tr>
+   <td valign="top">ed-00006</td>
+   <td valign="top">400</td>
+   <td valign="top">反映またはアップロード中のため更新ができません。</td>
+  </tr>
+</tbody></table>
+
+<p class="mb10">エラーコード</p>
+<table>
+  <tbody><tr align="center">
+   <th width="12%">コード</th>
+   <th width="15%">HTTPステータスコード</th>
+   <th width="73%">説明</th>
+  </tr>
+  <tr>
+    <td valign="top">it-01085</td>
+    <td valign="top">400</td>
+    <td valign="top">登録されている商品数が上限を超えています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01092</td>
+    <td valign="top">400</td>
+    <td valign="top">カテゴリ数が上限を超えています。</td>
+  </tr>
+</tbody></table>
+
+<p class="mb10">エラーコード（警告、入力値エラー系）</p>
+<table>
+  <tbody><tr align="center">
+   <th width="12%">コード</th>
+   <th width="15%">HTTPステータスコード</th>
+   <th width="73%">説明</th>
+  </tr>
+  <tr>
+    <td valign="top">it-00001</td>
+    <td valign="top">200</td>
+    <td valign="top">外部リンクを削除しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00002</td>
+    <td valign="top">200</td>
+    <td valign="top">商品説明はタグ閉じされていません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00003</td>
+    <td valign="top">200</td>
+    <td valign="top">ひと言コメントはタグ閉じされていません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00004</td>
+    <td valign="top">200</td>
+    <td valign="top">フリースペースはタグ閉じされていません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00005</td>
+    <td valign="top">200</td>
+    <td valign="top">ヤフー製品コードを補正しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00006</td>
+    <td valign="top">200</td>
+    <td valign="top">製品コードを補正しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00007</td>
+    <td valign="top">200</td>
+    <td valign="top">JANコードを補正しました。</td>
+  </tr>
+  <tr>
+    <td valign="top"><s>it-00009</s></td>
+    <td valign="top"><s>200</s></td>
+    <td valign="top"><s>ブランドコードを補正しました。</s><br>ブランドコードとカテゴリの関連付けにより削除しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00010</td>
+    <td valign="top">200</td>
+    <td valign="top">スマートフォン用フリースペースはタグ閉じされていません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00011</td>
+    <td valign="top">200</td>
+    <td valign="top">フリースペースは600キロバイトまでを推奨しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00012</td>
+    <td valign="top">200</td>
+    <td valign="top">入力されたブランドコードをプロダクトカテゴリに関連付けられませんでした。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00013</td>
+    <td valign="top">200</td>
+    <td valign="top"><b class="txt-red">2018/03/05 追記</b><br>Iframeにて他法人のトリプル上のファイルを呼び出しております。<br>
+2018年4月以降(予定)になりますと、更新時に該当タグのsrc属性を削除いたしますので、ご注意ください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-00014</td>
+    <td valign="top">200</td>
+    <td valign="top"><b class="txt-red">019/10/10 追加</b><br>PayPayモールではiframeがご利用いただけません。iframeタグを無効化しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01001</td>
+    <td valign="top">200</td>
+    <td valign="top">パスは最大8階層です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01002</td>
+    <td valign="top">200</td>
+    <td valign="top">パスは全角20文字（半角40文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01003</td>
+    <td valign="top">200</td>
+    <td valign="top">商品コードは半角99文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01004</td>
+    <td valign="top">200</td>
+    <td valign="top">商品コードのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01005</td>
+    <td valign="top">200</td>
+    <td valign="top">フリースペースは全角5000文字（半角10000文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01006</td>
+    <td valign="top">200</td>
+    <td valign="top">関連商品数は最大20個です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01007</td>
+    <td valign="top">200</td>
+    <td valign="top">関連商品は半角99文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01008</td>
+    <td valign="top">200</td>
+    <td valign="top">関連商品のフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01009</td>
+    <td valign="top">200</td>
+    <td valign="top">発売日は現在日時から240日以内にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01010</td>
+    <td valign="top">200</td>
+    <td valign="top">パスのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01011</td>
+    <td valign="top">200</td>
+    <td valign="top">パスは必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01012</td>
+    <td valign="top">200</td>
+    <td valign="top">商品名は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01013</td>
+    <td valign="top">200</td>
+    <td valign="top">商品コードは必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01014</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリは必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01015</td>
+    <td valign="top">200</td>
+    <td valign="top">通常販売価格は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01016</td>
+    <td valign="top">200</td>
+    <td valign="top">商品名のフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01017</td>
+    <td valign="top">200</td>
+    <td valign="top">商品名は全角75文字（半角150文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01018</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コード数は最大100個です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01019</td>
+    <td valign="top">200</td>
+    <td valign="top">オプション数は最大20個です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01020</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードは半角99文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01021</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01022</td>
+    <td valign="top">200</td>
+    <td valign="top">通常販売価格は数値を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01023</td>
+    <td valign="top">200</td>
+    <td valign="top">通常販売価格は1円～99999999円を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01024</td>
+    <td valign="top">200</td>
+    <td valign="top">定価は数値を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01025</td>
+    <td valign="top">200</td>
+    <td valign="top">定価は0円～99999999円を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01026</td>
+    <td valign="top">200</td>
+    <td valign="top">特価は通常販売価格より安い金額にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01027</td>
+    <td valign="top">200</td>
+    <td valign="top">オプション値数はオプションにつき最大100個です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01028</td>
+    <td valign="top">200</td>
+    <td valign="top">オプション項目、オプション値は全角28文字（半角56文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01029</td>
+    <td valign="top">200</td>
+    <td valign="top">オプションのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01030</td>
+    <td valign="top">200</td>
+    <td valign="top">キャッチコピーは全角30文字（半角60文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01031</td>
+    <td valign="top">200</td>
+    <td valign="top">商品説明は全角5000文字（半角10000文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01032</td>
+    <td valign="top">200</td>
+    <td valign="top">ひと言コメントは全角500文字（半角1000文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01033</td>
+    <td valign="top">200</td>
+    <td valign="top">商品情報は全角500文字（半角1000文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01034</td>
+    <td valign="top">200</td>
+    <td valign="top">重量は数値を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01035</td>
+    <td valign="top">200</td>
+    <td valign="top">重量は半角7文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01036</td>
+    <td valign="top">200</td>
+    <td valign="top">課税対象は数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01037</td>
+    <td valign="top">200</td>
+    <td valign="top">課税対象は0か1を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01038</td>
+    <td valign="top">200</td>
+    <td valign="top">発売日を正しく入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01040</td>
+    <td valign="top">200</td>
+    <td valign="top">META descriptionは全角80文字（半角160文字）以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01041</td>
+    <td valign="top">200</td>
+    <td valign="top">ページ公開は数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01042</td>
+    <td valign="top">200</td>
+    <td valign="top">ページ公開は0か1を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01043</td>
+    <td valign="top">200</td>
+    <td valign="top">販売期間を正しく入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01044</td>
+    <td valign="top">200</td>
+    <td valign="top">終了日時は開始日時以降にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01045</td>
+    <td valign="top">200</td>
+    <td valign="top">購入数制限は数値を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01046</td>
+    <td valign="top">200</td>
+    <td valign="top">購入数制限は1～999を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01047</td>
+    <td valign="top">200</td>
+    <td valign="top">販促コードは半角10文字で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01048</td>
+    <td valign="top">200</td>
+    <td valign="top">販促コードは数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01049</td>
+    <td valign="top">200</td>
+    <td valign="top">ブランドコードは半角10文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01050</td>
+    <td valign="top">200</td>
+    <td valign="top">ブランドコードは数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01051</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahoo!ショッピング製品コードは32バイトで入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01052</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahoo!ショッピング製品コードのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01053</td>
+    <td valign="top">200</td>
+    <td valign="top">製品コードは半角50文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01054</td>
+    <td valign="top">200</td>
+    <td valign="top">製品コードのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01055</td>
+    <td valign="top">200</td>
+    <td valign="top">Janコードのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01057</td>
+    <td valign="top">200</td>
+    <td valign="top">送料は数値を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01058</td>
+    <td valign="top">200</td>
+    <td valign="top">送料は0～3を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01059</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリは数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01060</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリは半角10文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01065</td>
+    <td valign="top">200</td>
+    <td valign="top">スペック項目IDが重複しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01066</td>
+    <td valign="top">200</td>
+    <td valign="top">スペックのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01067</td>
+    <td valign="top">200</td>
+    <td valign="top">オプションが設定されていません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01068</td>
+    <td valign="top">200</td>
+    <td valign="top">オプションで入力されたスペック項目IDと一致しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01069</td>
+    <td valign="top">200</td>
+    <td valign="top">オプションで入力された選択肢と一致しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01070</td>
+    <td valign="top">200</td>
+    <td valign="top">特価は数値を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01071</td>
+    <td valign="top">200</td>
+    <td valign="top">特価は1円～99999999円を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01072</td>
+    <td valign="top">200</td>
+    <td valign="top">オプション項目が重複しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01073</td>
+    <td valign="top">200</td>
+    <td valign="top">オプション値が重複しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01074</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードが重複しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01075</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードのオプション項目が重複しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01076</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードを設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01077</td>
+    <td valign="top">200</td>
+    <td valign="top">入力可能文字数は数値（1～60）を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01078</td>
+    <td valign="top">200</td>
+    <td valign="top">ポイントコードのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01079</td>
+    <td valign="top">200</td>
+    <td valign="top">ポイントコードは3バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01080</td>
+    <td valign="top">200</td>
+    <td valign="top">存在しないポイントコードが入力されています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01081</td>
+    <td valign="top">200</td>
+    <td valign="top">不正な販促コードが入力されています。<br>Yahoo!ショッピングで発行をしている販促コードを入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01082</td>
+    <td valign="top">200</td>
+    <td valign="top">きょうつく、あすつく設定で「ご利用条件」「対応可能エリア」が<br>設定されていない、または反映が完了していないため、<br>「あすつく」コードの設定はできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01083</td>
+    <td valign="top">200</td>
+    <td valign="top">「あすつく」コードは数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01084</td>
+    <td valign="top">200</td>
+    <td valign="top">「あすつく」コードは0か1か2を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01086</td>
+    <td valign="top">200</td>
+    <td valign="top">古物免許証番号が未反映のため、商品状態を「中古」に設定することはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01087</td>
+    <td valign="top">200</td>
+    <td valign="top">商品状態は数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01088</td>
+    <td valign="top">200</td>
+    <td valign="top">商品状態は0か1を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01089</td>
+    <td valign="top">200</td>
+    <td valign="top">このYahooショッピングカテゴリには登録できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01090</td>
+    <td valign="top">200</td>
+    <td valign="top">このYahooショッピングカテゴリには商品の状態を新品で登録できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01091</td>
+    <td valign="top">200</td>
+    <td valign="top">このYahooショッピングカテゴリには商品の状態を中古で登録できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01093</td>
+    <td valign="top">200</td>
+    <td valign="top">在庫表示設定は-1か1か2を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01094</td>
+    <td valign="top">200</td>
+    <td valign="top">この商品コードは使用できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01095</td>
+    <td valign="top">200</td>
+    <td valign="top">このカテゴリ名は使用できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01096</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリが存在しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01097</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリに対するスペック項目が存在しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01098</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリに対するスペック値が存在しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01099</td>
+    <td valign="top">200</td>
+    <td valign="top">スペック値は整数値で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01100</td>
+    <td valign="top">200</td>
+    <td valign="top">スペック値は小数値で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01101</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリに対するスペック項目が存在しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01102</td>
+    <td valign="top">200</td>
+    <td valign="top">Yahooショッピングカテゴリに対するスペック値が存在しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01103</td>
+    <td valign="top">200</td>
+    <td valign="top">インスクリプションのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01104</td>
+    <td valign="top">200</td>
+    <td valign="top">インスクリプション名が重複しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01105</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページ設定のフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01106</td>
+    <td valign="top">200</td>
+    <td valign="top">スペックが範囲を超えています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01107</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードのオプションが重複しています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01108</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページは数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01109</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページは0か1を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01110</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページ用IDとパスワードはセットで入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01111</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページ用IDは20バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01112</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページ用IDのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01113</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページ用パスワードは20バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01114</td>
+    <td valign="top">200</td>
+    <td valign="top">隠しページ用パスワードのフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01115</td>
+    <td valign="top">200</td>
+    <td valign="top">カート内関連商品数は最大3個です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01116</td>
+    <td valign="top">200</td>
+    <td valign="top">カート内関連商品は半角99文字以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01117</td>
+    <td valign="top">200</td>
+    <td valign="top">カート内関連商品のフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01122</td>
+    <td valign="top">200</td>
+    <td valign="top">パス（リンク）は最大20個です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01123</td>
+    <td valign="top">200</td>
+    <td valign="top">オプションは合計で2000バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01124</td>
+    <td valign="top">200</td>
+    <td valign="top">フリースペースは2000キロバイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01125</td>
+    <td valign="top">200</td>
+    <td valign="top">item_codeの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01126</td>
+    <td valign="top">200</td>
+    <td valign="top">pathの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01127</td>
+    <td valign="top">200</td>
+    <td valign="top">nameの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01128</td>
+    <td valign="top">200</td>
+    <td valign="top">product_categoryの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01129</td>
+    <td valign="top">200</td>
+    <td valign="top">original_priceの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01130</td>
+    <td valign="top">200</td>
+    <td valign="top">priceの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01131</td>
+    <td valign="top">200</td>
+    <td valign="top">sale_priceの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01132</td>
+    <td valign="top">200</td>
+    <td valign="top">headlineの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01133</td>
+    <td valign="top">200</td>
+    <td valign="top">captionの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01134</td>
+    <td valign="top">200</td>
+    <td valign="top">abstractの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01135</td>
+    <td valign="top">200</td>
+    <td valign="top">explanationの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01136</td>
+    <td valign="top">200</td>
+    <td valign="top">additional1の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01137</td>
+    <td valign="top">200</td>
+    <td valign="top">additional2の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01138</td>
+    <td valign="top">200</td>
+    <td valign="top">additional3の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01139</td>
+    <td valign="top">200</td>
+    <td valign="top">sp_additionalの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01140</td>
+    <td valign="top">200</td>
+    <td valign="top">relevant_linksの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01141</td>
+    <td valign="top">200</td>
+    <td valign="top">cart_related_itemsの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01142</td>
+    <td valign="top">200</td>
+    <td valign="top">ship_weightの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01143</td>
+    <td valign="top">200</td>
+    <td valign="top">taxableの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01144</td>
+    <td valign="top">200</td>
+    <td valign="top">release_dateの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01145</td>
+    <td valign="top">200</td>
+    <td valign="top">sale_period_startの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01146</td>
+    <td valign="top">200</td>
+    <td valign="top">sale_period_endの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01147</td>
+    <td valign="top">200</td>
+    <td valign="top">sale_limitの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01148</td>
+    <td valign="top">200</td>
+    <td valign="top">sp_codeの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01149</td>
+    <td valign="top">200</td>
+    <td valign="top">point_codeの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01151</td>
+    <td valign="top">200</td>
+    <td valign="top">meta_descの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01152</td>
+    <td valign="top">200</td>
+    <td valign="top">displayの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01153</td>
+    <td valign="top">200</td>
+    <td valign="top">hidden_pageの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01154</td>
+    <td valign="top">200</td>
+    <td valign="top">templateの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01155</td>
+    <td valign="top">200</td>
+    <td valign="top">brand_codeの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01156</td>
+    <td valign="top">200</td>
+    <td valign="top"><span class="txt-red">Y!ショッピング製品コード廃止のため削除</span><br><s>yahoo_product_codeの値が不正です。</s></td>
+  </tr>
+  <tr>
+    <td valign="top">it-01157</td>
+    <td valign="top">200</td>
+    <td valign="top">product_codeの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01158</td>
+    <td valign="top">200</td>
+    <td valign="top">janの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01159</td>
+    <td valign="top">200</td>
+    <td valign="top">deliveryの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01160</td>
+    <td valign="top">200</td>
+    <td valign="top">astk_codeの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01161</td>
+    <td valign="top">200</td>
+    <td valign="top">conditionの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01162</td>
+    <td valign="top">200</td>
+    <td valign="top">spec1の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01163</td>
+    <td valign="top">200</td>
+    <td valign="top">spec2の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01164</td>
+    <td valign="top">200</td>
+    <td valign="top">spec3の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01165</td>
+    <td valign="top">200</td>
+    <td valign="top">spec4の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01166</td>
+    <td valign="top">200</td>
+    <td valign="top">spec5の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01167</td>
+    <td valign="top">200</td>
+    <td valign="top">optionsの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01168</td>
+    <td valign="top">200</td>
+    <td valign="top">inscriptionsの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01169</td>
+    <td valign="top">200</td>
+    <td valign="top">subcodesの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01175</td>
+    <td valign="top">200</td>
+    <td valign="top">spec6の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01176</td>
+    <td valign="top">200</td>
+    <td valign="top">spec7の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01177</td>
+    <td valign="top">200</td>
+    <td valign="top">spec8の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01178</td>
+    <td valign="top">200</td>
+    <td valign="top">spec9の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01179</td>
+    <td valign="top">200</td>
+    <td valign="top">spec10の値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01180</td>
+    <td valign="top">200</td>
+    <td valign="top">スペック項目ID数は最大10個です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01181</td>
+    <td valign="top">200</td>
+    <td valign="top">スペック値は最大100個です</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01182</td>
+    <td valign="top">200</td>
+    <td valign="top">このスペック項目IDには複数スペック値を登録することはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01183</td>
+    <td valign="top">200</td>
+    <td valign="top">特価を設定した場合は販売期間を14日以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01184</td>
+    <td valign="top">200</td>
+    <td valign="top">エビデンスURLはURL形式で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01185</td>
+    <td valign="top">200</td>
+    <td valign="top">エビデンスURLは2083文字(2083バイト)以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01186</td>
+    <td valign="top">200</td>
+    <td valign="top">original_price_evidenceの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01187</td>
+    <td valign="top">200</td>
+    <td valign="top">発送日情報管理番号が存在しません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01188</td>
+    <td valign="top">200</td>
+    <td valign="top">発送日情報管理番号は数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01198</td>
+    <td valign="top">200</td>
+    <td valign="top">1オプション名に対して選択不可オプションを複数設定することはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01199</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードと選択不可オプションは同時に指定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01200</td>
+    <td valign="top">200</td>
+    <td valign="top">スペック値と選択不可オプションは同時に指定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01205</td>
+    <td valign="top">200</td>
+    <td valign="top">選択不可オプションは選択肢が1つだけのオプション値に指定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01206</td>
+    <td valign="top">200</td>
+    <td valign="top">入力欄と選択不可オプションは同時に設定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01207</td>
+    <td valign="top">200</td>
+    <td valign="top">有料オプション設定は0円〜99999999円を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01208</td>
+    <td valign="top">200</td>
+    <td valign="top">課税対象外商品に有料オプション設定をすることはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01209</td>
+    <td valign="top">200</td>
+    <td valign="top">選択不可設定を行ったオプションに有料オプション設定をすることはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01210</td>
+    <td valign="top">200</td>
+    <td valign="top">先頭のオプション値に有料オプション設定をすることはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01212</td>
+    <td valign="top">200</td>
+    <td valign="top">有料オプション設定は特価より安い価格に設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01213</td>
+    <td valign="top">200</td>
+    <td valign="top">有料オプション設定はY!プレミアム会員向け販売価格より安い価格に設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01214</td>
+    <td valign="top">200</td>
+    <td valign="top">通常販売価格と有料オプション設定の合計価格は1円〜99999999円で設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01215</td>
+    <td valign="top">200</td>
+    <td valign="top">通常販売価格と各有料オプションの最大金額の合計価格は1円〜99999999円で設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01216</td>
+    <td valign="top">200</td>
+    <td valign="top">オプション値すべてに有料オプションを設定をすることはできません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01217</td>
+    <td valign="top">200</td>
+    <td valign="top">個別商品コードと有料オプションは同時に指定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01218</td>
+    <td valign="top">200</td>
+    <td valign="top">入力欄と有料オプションは同時に指定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01220</td>
+    <td valign="top">200</td>
+    <td valign="top">特価は有料オプション設定より高い価格に設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01221</td>
+    <td valign="top">200</td>
+    <td valign="top">プレミアム会員向け販売価格は有料オプション設定より高い価格に設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01222</td>
+    <td valign="top">200</td>
+    <td valign="top">通常販売価格と有料オプション設定の合計価格は1円〜99999999円で設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01223</td>
+    <td valign="top">200</td>
+    <td valign="top">通常販売価格と各有料オプションの最大金額の合計価格は1円〜99999999円で設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01224</td>
+    <td valign="top">400</td>
+    <td valign="top">is_drugの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01225</td>
+    <td valign="top">400</td>
+    <td valign="top">is_drugは数字を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01226</td>
+    <td valign="top">400</td>
+    <td valign="top">is_drugは0か1を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01227</td>
+    <td valign="top">400</td>
+    <td valign="top">第1類医薬品設定は医薬品販売ストア以外は設定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01228</td>
+    <td valign="top">400</td>
+    <td valign="top">第1類医薬品設定は医薬品カテゴリ以外の商品はに設定できません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01300</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">個別商品コード画像が空欄です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01301</td>
+    <td valign="top">200(警告)</td>
+    <td valign="top">代表画像に0か1以外が設定されているので0に補完しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01302</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">個別商品コード画像のフォーマットが無効です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01303</td>
+    <td valign="top">200(警告)</td>
+    <td valign="top">該当の画像が見つかりませんでした、画像をアップロードしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01304</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">個別商品コード画像に存在しない個別商品コードが設定されています。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01305</td>
+    <td valign="top">200(警告)</td>
+    <td valign="top">オプション軸に対して代表画像が複数設定されています。 or 代表画像が複数設定されているため0に補完しました。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01306</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">個別商品コード画像の文字数は200バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01307</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">subcode_imagesの値が不正です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01308</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">個別商品コード画像は最大1枚まで登録可能です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01401</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">ストア内商品検索用キーワードは20文字(40バイト)以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01402</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">発送元地域は01〜48を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01403</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">送料負担はbuyerかsellerを指定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01404</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">決済方法は半角英数字で入力してください。複数指定する場合は_（アンダースコア）で繋いでください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01405</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">商品状態が正しくありません。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01406</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">消費税はT1〜T9で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01407</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">配送方法・送料は半角英数字で入力してください。複数指定する場合は_（アンダースコア）で繋いでください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01408</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">代引き手数料は半角英数字で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01409</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">管理番号は20バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01410</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">カテゴリ番号は半角数字で10桁までです。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01411</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">発送元地域は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01412</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">送料負担は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01413</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">商品状態は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01414</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">消費税は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01415</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">カテゴリ番号は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01416</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">送料負担が落札者の場合は、配送方法・送料は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01417</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">決済方法は38バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01418</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">配送方法・送料は300バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01419</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">代引き手数料は10バイト以内で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-01420</td>
+    <td valign="top">200(エラー)</td>
+    <td valign="top">管理番号は半角英数字で入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14032</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：通常販売価格は半角数字8桁以下で入力ください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14033</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：通常販売価格は1円～99999999円を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14034</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：通常販売価格の入力は必須です。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14035</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：セール価格は半角数字8桁以下で入力ください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14036</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：セール価格は1円～99999999円を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14037</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：セール価格は通常販売価格より安い金額にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14038</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：Y!プレミアム会員向け販売価格はセール価格より安い金額にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14039</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：Y!プレミアム会員向け価格は半角数字8桁以下で入力ください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14040</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：Y!プレミアム会員向け価格は1円～99999999円を入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14041</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：Y!プレミアム会員向け価格は通常販売価格より安い金額にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14042</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：切替期間の開始日・終了日を設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14043</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：切替期間を正しく入力してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14044</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：切替期間は予約販売開始日時以降にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14045</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：切替期間開始日時は販売期間の間で設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14046</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：切替期間は2時間以上、28日以内の設定にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14047</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：切替期間は2時間以上、14日以内の設定にしてください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14048</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：通常販売価格と有料オプション設定の合計価格は1円～99999999円で設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14049</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：通常販売価格と各有料オプションの最大金額の合計価格は1円～99999999円で設定してください。</td>
+  </tr>
+  <tr>
+    <td valign="top">it-14050</td>
+    <td valign="top">400</td>
+    <td valign="top">自動切替設定：切替期間終了日時は販売期間の間で設定してください。</td>
+  </tr>
+</tbody></table>
+   <!--//エラー end//-->
+
+   <!--//利用制限 start//-->
+   <h2>利用制限</h2>
+   <p>※短い時間の間に同一URLに大量にアクセスを行った場合、一定時間利用できなくなることもございます。（1クエリー/秒）<br>
+   <b>1日50,000リクエストを超える場合は、アプリケーションIDを追加してご対応ください。</b>
+   </p>
+
+   <h2>利用約款</h2>
+   <p>このAPIに関する利用約款は<a href="https://developer.yahoo.co.jp/webapi/shopping/api_contract.html">こちら</a>。</p>
+   <!--//利用制限 end//-->
+                          
+                        </div>
+
+                        <section class="col1-4 yjdn-side">
+
+	<p class="btn full"><a class="side-bt" href="https://e.developer.yahoo.co.jp/dashboard/"><span>アプリケーションの管理</span></a></p>
+
+
+	
+        <h3>目次</h3>
+
+<ul>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/itemsearch.html">商品検索</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/categoryranking.html">カテゴリランキング</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/categorysearch.html">カテゴリID取得</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/itemlookup.html">商品コード検索(商品詳細)</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/queryranking.html">キーワードランキング</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/getmodule.html">おすすめ情報モジュール</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/shopCampaignSearch.html">ポイントキャンペーン情報取得</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/eventsearch.html">販促イベント検索</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/reviewsearch.html">商品レビュー検索</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/selling/">出品管理に関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/item/">商品に関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/question/">問い合わせ管理に関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/product/">製品/SHPカテゴリ/ブランドに関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/stock/">在庫に関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/stCategory/">ストアカテゴリに関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/image/">画像に関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/design/">デザインに関連するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/order/">注文に関するAPI</a>
+</li>
+  <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/webapi/shopping/help.html">ヘルプ</a>
+</li>
+</ul>
+	
+
+	<h3>開発のヒント</h3>
+	<ul>
+		<li><a href="https://developer.yahoo.co.jp/start/">ご利用ガイド</a></li>
+		<li><a href="https://developer.yahoo.co.jp/changelog/">お知らせ</a></li>
+		<li><a href="https://support.yahoo-net.jp/PccDeveloper/s/article/H000011080">WebAPIの商用利用について</a></li>
+		<li><a href="https://developer.yahoo.co.jp/appendix/rate.html">利用制限について</a></li>
+		<li><a href="https://developer.yahoo.co.jp/sample/">サンプルコード</a></li>
+		<li><a href="https://developer.yahoo.co.jp/appendix/errors.html">エラーメッセージおよびコード</a></li>
+		<li><a href="https://developer.yahoo.co.jp/attribution/">クレジット表示</a></li>
+		<li><a href="https://developer.yahoo.co.jp/developer/contact/">お問い合わせ</a></li>
+	</ul>
+	
+		
+		<ul>
+			<h3>サービス一覧</h3>
+			<li><a href="https://developer.yahoo.co.jp/webapi/shopping/">ショッピングAPI</a></li>
+			<li><a href="https://developer.yahoo.co.jp/webapi/map/">YOLP(地図) </a></li>
+			<li><a href="https://developer.yahoo.co.jp/webapi/jlp/">テキスト解析API</a></li>
+			<li><a href="https://developer.yahoo.co.jp/yconnect/">Yahoo! ID連携</a></li>
+			<li><a href="https://developer.yahoo.co.jp/webapi/job/">求人API</a></li>
+			<li><a href="https://developer.yahoo.co.jp/sitemap/">すべてのサービスを見る</a></li>
+		</ul>
+	
+
+</section>
+
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div><!-- /.main -->
+            </main>
+
+            <footer class="page-footer" role="contentinfo">
+	
+    <div class="upper-tech">
+      <dl class="snslist">
+        <dt class="title">テクノロジー　公式SNSアカウント：</dt>
+        <dd class="twitter"><a href="https://twitter.com/intent/follow?screen_name=ydnjp"><img src="./商品登録API - Yahoo!デベロッパーネットワーク_files/icon_twitter.svg" width="40" height="40" alt="Twitter"></a></dd>
+      </dl>
+
+        <dl class="about">
+            <dt class="title">Yahoo!デベロッパーネットワークとは</dt>
+            <dd class="txt">
+              <p>クリエイターの皆さんとYahoo! JAPANの技術をつなげるポータルサイトです。<br>
+			  Yahoo! JAPANが提供するWeb APIやOSS、ソフトウエア開発に役立つ最新情報をお届けします。</p>
+            </dd>
+          </dl>
+
+    </div><!-- /.upper -->
+
+<div class="lower">
+		
+		<p class="links" id="footer-links">
+			<a href="https://privacy.yahoo.co.jp/">プライバシーセンター</a>
+			<a href="https://about.yahoo.co.jp/common/terms/index.html">利用規約</a>
+			
+			<a href="https://support.yahoo-net.jp/PccDeveloper/s/">お問い合わせ</a>
+			
+			<a href="https://about.yahoo.co.jp/common/copyright/">著作権やロゴについて</a>
+			<a href="https://about.yahoo.co.jp/common/disclaimer/">免責事項</a><br>
+		</p>
+		<p class="copyright">© Yahoo Japan</p>
+		
+	</div><!-- /.lower -->
+
+	
+</footer><!-- /.page-footer -->
+
+<div id="pagetop" class="fixed">
+	<p id="btn-pagetop" class="show"><a href="https://developer.yahoo.co.jp/webapi/shopping/editItem.html#top">このページの先頭へ</a></p>
+</div>
+
+
+        </div><!-- /#wrapper -->
+
+        <script src="./商品登録API - Yahoo!デベロッパーネットワーク_files/lib.js.download" defer=""></script>
+<script src="./商品登録API - Yahoo!デベロッパーネットワーク_files/common.js.download" defer=""></script>
+<script src="./商品登録API - Yahoo!デベロッパーネットワーク_files/highlight.pack.js.download" defer=""></script>
+<script src="./商品登録API - Yahoo!デベロッパーネットワーク_files/common.min.js.download" defer=""></script>
+
+
+    
+
+  
+
+<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" focusable="false" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
+
+<!-- ■共通タグ --> 
+<!-- EBiS tag version4.10 start -->
+
+<!-- EBiS tag end --></body></html>

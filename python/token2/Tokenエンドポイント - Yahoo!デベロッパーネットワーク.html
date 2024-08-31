@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://developer.yahoo.co.jp/yconnect/v1/server_app/explicit/token.html -->
+<html lang="ja" class="js sb17"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+
+<title>Tokenエンドポイント - Yahoo!デベロッパーネットワーク</title>
+
+<link rel="preload" href="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/common.css" as="style">
+<link rel="preload" href="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/layout.css" as="style">
+
+<meta name="description" content="Yahoo!デベロッパーネットワークはクリエイターの皆さんとYahoo! JAPANの技術をつなげるポータルサイトです。Yahoo! JAPANが提供するWeb APIやOSS、ソフトウエア開発に役立つ最新情報をお届けします。">
+<meta name="keywords" content="Yahoo,ヤフー,API,OSS">
+<meta property="og:title" content="Tokenエンドポイント - Yahoo!デベロッパーネットワーク">
+<meta property="og:description" content="Yahoo!デベロッパーネットワークはクリエイターの皆さんとYahoo! JAPANの技術をつなげるポータルサイトです。Yahoo! JAPANが提供するWeb APIやOSS、ソフトウエア開発に役立つ最新情報をお届けします。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Yahoo!デベロッパーネットワーク">
+<meta property="og:image" content="https://s.yimg.jp/images/yjdn/website/v2/images/ogp.png">
+<meta property="og:url" content="https://developer.yahoo.co.jp/yconnect/v1/server_app/explicit/token.html">
+<meta property="og:locale" content="ja_JP">
+
+
+<meta name="origin-title" content="Tokenエンドポイント - Yahoo!デベロッパーネットワーク">
+
+<meta name="twitter:site" content="@ydnjp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="apple-touch-icon" href="https://s.yimg.jp/i/docs/integrate/images/common/about_yahoo_webclip.png">
+
+<link rel="stylesheet" href="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/common.css" media="all">
+<link rel="stylesheet" href="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/layout.css" media="all">
+<link rel="icon" href="https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico">
+
+
+<script src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/rec.php" type="text/javascript" async=""></script><script type="text/javascript" async="" src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/cmt.js.download"></script><script type="text/javascript" src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/ya-1.6.0.min.js.download"></script><script type="text/javascript" src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/ytag.js.download"></script><script type="text/javascript" src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/tag"></script><script async="" src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/tag.js.download"></script><script type="text/javascript">
+  (function () {
+    var tagjs = document.createElement("script");
+    var s = document.getElementsByTagName("script")[0];
+    tagjs.async = true;
+    tagjs.src = "//s.yjtag.jp/tag.js#site=t0xczxQ";
+    s.parentNode.insertBefore(tagjs, s);
+  }());
+</script>
+<link rel="preconnect" href="https://dsb.yahoo.co.jp/"><link rel="preconnect" href="https://dsb.yahoo.co.jp/"></head>
+
+    <body class="bg-gray-1">
+      <noscript>
+        <iframe src="//b.yjtag.jp/iframe?c=t0xczxQ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      </noscript>
+      <!-- AD_POSITIONS(EMG3,EMG2,EMG) -->
+
+<div id="navi">
+
+<header class="header-navigation header-navigation-withdrow" id="header-navigation">
+  <nav class="bar" aria-label="メインメニュー"> <a class="site-id" href="https://about.yahoo.co.jp/"><img src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/yahoo_logo.png" width="400" height="102" alt="Yahoo! JAPAN - 会社概要"></a>
+    <ul class="global-nav">
+      <li><a href="https://about.yahoo.co.jp/info/" data-menu="1">企業情報</a></li>
+      <li><a href="https://about.yahoo.co.jp/pr/" data-menu="2">ニュース</a></li>
+      <li><a href="https://about.yahoo.co.jp/service/" data-menu="3">サービス</a></li>
+      <li><a href="https://developer.yahoo.co.jp/" data-menu="4" class="current">テクノロジー</a></li>
+      <li><a href="https://about.yahoo.co.jp/csr/" data-menu="5">CSR</a></li>
+      <li><a href="https://about.yahoo.co.jp/hr/" data-menu="6">採用情報</a></li>
+    </ul>
+    <button type="button" data-menu="7" class="search"><span><img src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/icon_search.png" alt="コーポレートサイト検索を開く"></span></button>
+    <p id="btn-menu">
+      <button><span>MENU</span></button>
+    </p>
+  </nav>
+  <div class="megamenu">
+    <div data-menu="1">
+      <div class="head"><a href="https://about.yahoo.co.jp/info/">企業情報</a></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/company/">会社情報</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/message/">トップメッセージ</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/officers/">役員体制</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/history/">ヤフーの歴史</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/blog/">コーポレートブログ</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://www.z-holdings.co.jp/company/groupcompanies/" target="_blank">主なグループ会社<br>（Zホールディングスサイトへ）</a></li>
+			<li><a href="https://about.yahoo.co.jp/topics/">トピックス</a></li>
+          	<li><a href="https://about.yahoo.co.jp/common/koukoku/">電子公告</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div data-menu="2">
+      <div class="head"><a href="https://about.yahoo.co.jp/pr/">ニュース</a></div>
+      <div class="body col-set">
+        <div class="col1-4">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/pr/#pr">プレスリリース</a></dt>
+            <dt><span>2022年～2018年</span></dt>
+            <dd>
+              <ul>
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/"><span>2022年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2021/"><span>2021年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2020/"><span>2020年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2019/"><span>2019年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2018/"><span>2018年</span></a></li>
+
+              </ul>
+            </dd>
+
+            <dt class="show-pc-max"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2017年～2013年</span></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2017/"><span>2017年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2016/"><span>2016年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2015/"><span>2015年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2014/"><span>2014年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2013/"><span>2013年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2012年～2008年</span></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2012/"><span>2012年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2011/"><span>2011年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2010/"><span>2010年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2009/"><span>2009年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2008/"><span>2008年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2007年～2003年</span></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2007/"><span>2007年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2006/"><span>2006年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2005/"><span>2005年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2004/"><span>2004年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2003/"><span>2003年</span></a></li>
+
+
+              </ul>
+            </dd>
+            <dt class="show-sp-tab"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div data-menu="3">
+      <div class="head"><a href="https://about.yahoo.co.jp/service/">サービス</a></div>
+      <div class="body col-set">
+        <div class="col1-2">
+          <dl>
+            <dt><span>メディア</span></dt>
+            <dd>
+              <div class="col-set">
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/movie/">映画</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carnavi/">カーナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carview/">carview!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/calendar/">カレンダー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/kids/">きっず</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/gyao/">GYAO!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/creators/">クリエイターズプログラム</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/search/">検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/sponavi/">スポーツナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/chiebukuro/">知恵袋</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/tv/">テレビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/weather/">天気</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/news/">ニュース</a></li>
+                  </ul>
+                </div>
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/donation/">ネット募金</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/finance/">ファイナンス</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/emg/">防災速報</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/partner/">パートナー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/map/">MAP</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/mail/">メール</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/yahoojapan/">Yahoo! JAPANアプリ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/realtime/">リアルタイム検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/transit/">路線情報</a></li>
+                  </ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>コマース</span></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/ebookjapan/">ebookjapan</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/fortune/">占い</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/yellmarket/">エールマーケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/card/">カード</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/game/">ゲーム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/shopping/">ショッピング</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/ticket/">チケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/travel/">トラベル</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/passmarket/">PassMarket</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/beauty/">BEAUTY</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/realestate/">不動産</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/premium/">プレミアム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypay/">PayPay</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypayfleamarket/">PayPayフリマ</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypaymall/">PayPayモール</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/auctions/">ヤフオク!</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>ビジネス</span></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/datasolution/">データソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/place/">プレイス</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/marketing/">マーケティングソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/lodge/">LODGE</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/saigai-support/">災害支援</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div data-menu="4">
+      <div class="head"><a href="https://developer.yahoo.co.jp/">テクノロジー</a></div>
+			<div class="body col-set">
+				<div class="col1-4">
+					<dl>
+						<dt><span>API・OSS</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://e.developer.yahoo.co.jp/dashboard/">アプリケーションの管理</a></li>
+								<li><a href="https://developer.yahoo.co.jp/start/">ご利用ガイド</a></li>
+								<li><a href="https://developer.yahoo.co.jp/sitemap/">APIドキュメント</a></li>
+								<li><a href="https://developer.yahoo.co.jp/yconnect/">Yahoo! ID連携</a></li>
+								<li><a href="https://developer.yahoo.co.jp/oss/">OSS</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>技術情報</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techblog.yahoo.co.jp/">Tech Blog</a></li>
+								<li><a href="https://www.docswell.com/user/ydnjp">登壇資料</a></li>
+								<li><a href="https://www.youtube.com/YahooDeveloperNetworkJP">登壇動画</a></li>
+								<li><a href="https://developer.yahoo.co.jp/labs/">Yahoo!ラボ</a></li>
+								<li><a href="https://randd.yahoo.co.jp/">Yahoo! JAPANの研究開発</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>イベント</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techconference.yahoo.co.jp/">Tech Conference</a></li>
+								<li><a href="https://hackday.yahoo.co.jp/">Hack Day</a></li>
+								<li><a href="https://hacku.yahoo.co.jp/">Hack U</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>コミュニティ</span></dt>
+						<dd>
+							<ul>
+								<li><a href="https://yj-meetup.connpass.com/">東京</a></li>
+								<li><a href="https://yahoo-nagoya.connpass.com/">名古屋</a></li>
+								<li><a href="https://yahoo-osaka.connpass.com/">大阪</a></li>
+								<li><a href="https://yahoo-fukuoka.connpass.com/">福岡</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div>
+    <div data-menu="5">
+      <div class="head"><a href="https://about.yahoo.co.jp/csr/">CSR</a></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/message/">トップメッセージ</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/en/csr/message/">TOP MESSAGE (English)</a></dt>
+            <dt><a href="https://www.z-holdings.co.jp/sustainability/stakeholder/" target="_blank">ESG（Zホールディングスサイトへ）</a></dt>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/effort/">Yahoo! JAPANが挑戦する<br>社会課題解決の取り組み</a></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category01.html">#1 情報技術社会の発展</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category02.html">#2 災害・社会課題への支援</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category03.html">#3 誰もが活躍できる社会の実現</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category04.html">#4 持続可能な社会への挑戦</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/report/">課題解決特集</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/topics/20200409.html">新型コロナウイルス感染拡大に関する<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/tohokujyunen/">東日本大震災における<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/donationforcarbonneutral/">Yahoo! JAPAN 地域カーボンニュートラル<br>促進プロジェクト</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div data-menu="6">
+      <div class="head"><a href="https://about.yahoo.co.jp/hr/">採用情報</a></div>
+			<div class="body col-set">
+				<div class="col1-6">
+					<dl>
+						<dt><span>MESSAGE</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/message/ceo.html">CEOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/message/cto.html">CTOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>ABOUT US</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/about/movie/">動画で知るヤフー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/linotice/">ヤフーの人・仕事・働き方を伝えるlinotice</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/about/infographics/">数字で見るヤフー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>SERVICE</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/service/">サービス・事業</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>INTERVIEW</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/interview/">社員インタビュー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>WORKPLACE</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/workstyle/">働き方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/office/">オフィス紹介</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/culture/">カルチャー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/training/">人財育成</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/welfare/">福利厚生</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/mypolaris/">クリエイター活動支援制度</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/faq/">FAQ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>RECRUITMENT</span></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/potential/">ポテンシャル採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/job-info/">キャリア採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/forengineers/">エンジニアの方へ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/disabilities/">障がいをお持ちの方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/gigpartner/">ギグパートナー募集</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/internship/">インターンシップ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div>
+    <div data-menu="7" class="search">
+      <form role="search" class="clearfix" action="https://about.yahoo.co.jp/search/">
+        <input name="q" type="text" value="" placeholder="コーポレートサイトを検索" aria-label="検索キーワード">
+        <button type="submit">検索</button>
+        <input type="hidden" name="category">
+      </form>
+    </div>
+  </div>
+  <!-- /.megamenu -->
+  <div class="bar-bg"></div>
+</header><div class="hamburger"><div class="global" style="display: none;"><div data-menu="1">
+      <div class="head"><a href="https://about.yahoo.co.jp/info/">企業情報</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/company/">会社情報</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/message/">トップメッセージ</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://about.yahoo.co.jp/info/officers/">役員体制</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/history/">ヤフーの歴史</a></li>
+			<li><a href="https://about.yahoo.co.jp/info/blog/">コーポレートブログ</a></li>
+          </ul>
+        </div>
+        <div class="col1-3">
+          <ul>
+			<li><a href="https://www.z-holdings.co.jp/company/groupcompanies/" target="_blank">主なグループ会社<br>（Zホールディングスサイトへ）</a></li>
+			<li><a href="https://about.yahoo.co.jp/topics/">トピックス</a></li>
+          	<li><a href="https://about.yahoo.co.jp/common/koukoku/">電子公告</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><div data-menu="2">
+      <div class="head"><a href="https://about.yahoo.co.jp/pr/">ニュース</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-4">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/pr/#pr">プレスリリース</a></dt>
+            <dt><span>2022年～2018年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/"><span>2022年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2021/"><span>2021年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2020/"><span>2020年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2019/"><span>2019年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2018/"><span>2018年</span></a></li>
+
+              </ul>
+            </dd>
+
+            <dt class="show-pc-max"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2017年～2013年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2017/"><span>2017年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2016/"><span>2016年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2015/"><span>2015年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2014/"><span>2014年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2013/"><span>2013年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2012年～2008年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2012/"><span>2012年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2011/"><span>2011年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2010/"><span>2010年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2009/"><span>2009年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2008/"><span>2008年</span></a></li>
+
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt class="show-pc-max">&nbsp;</dt>
+            <dt><span>2007年～2003年</span><button>Open</button></dt>
+            <dd>
+              <ul>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2007/"><span>2007年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2006/"><span>2006年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2005/"><span>2005年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2004/"><span>2004年</span></a></li>
+
+
+
+                <li><a href="https://about.yahoo.co.jp/pr/2003/"><span>2003年</span></a></li>
+
+
+              </ul>
+            </dd>
+            <dt class="show-sp-tab"><a href="https://about.yahoo.co.jp/pr/#information">お知らせ</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div><div data-menu="3">
+      <div class="head"><a href="https://about.yahoo.co.jp/service/">サービス</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-2">
+          <dl>
+            <dt><span>メディア</span><button>Open</button></dt>
+            <dd>
+              <div class="col-set">
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/movie/">映画</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carnavi/">カーナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/carview/">carview!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/calendar/">カレンダー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/kids/">きっず</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/gyao/">GYAO!</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/creators/">クリエイターズプログラム</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/search/">検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/sponavi/">スポーツナビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/chiebukuro/">知恵袋</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/tv/">テレビ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/weather/">天気</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/news/">ニュース</a></li>
+                  </ul>
+                </div>
+                <div class="col1-2">
+                  <ul>
+                    <li><a href="https://about.yahoo.co.jp/service/donation/">ネット募金</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/finance/">ファイナンス</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/emg/">防災速報</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/partner/">パートナー</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/map/">MAP</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/mail/">メール</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/yahoojapan/">Yahoo! JAPANアプリ</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/realtime/">リアルタイム検索</a></li>
+                    <li><a href="https://about.yahoo.co.jp/service/transit/">路線情報</a></li>
+                  </ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>コマース</span><button>Open</button></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/ebookjapan/">ebookjapan</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/fortune/">占い</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/yellmarket/">エールマーケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/card/">カード</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/game/">ゲーム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/shopping/">ショッピング</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/ticket/">チケット</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/travel/">トラベル</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/passmarket/">PassMarket</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/beauty/">BEAUTY</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/realestate/">不動産</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/premium/">プレミアム</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypay/">PayPay</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypayfleamarket/">PayPayフリマ</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/paypaymall/">PayPayモール</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/auctions/">ヤフオク!</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-4">
+          <dl>
+            <dt><span>ビジネス</span><button>Open</button></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/service/datasolution/">データソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/place/">プレイス</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/marketing/">マーケティングソリューション</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/lodge/">LODGE</a></li>
+                <li><a href="https://about.yahoo.co.jp/service/saigai-support/">災害支援</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div><div data-menu="4">
+      <div class="head"><a href="https://developer.yahoo.co.jp/">テクノロジー</a><button>Open</button></div>
+			<div class="body col-set">
+				<div class="col1-4">
+					<dl>
+						<dt><span>API・OSS</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://e.developer.yahoo.co.jp/dashboard/">アプリケーションの管理</a></li>
+								<li><a href="https://developer.yahoo.co.jp/start/">ご利用ガイド</a></li>
+								<li><a href="https://developer.yahoo.co.jp/sitemap/">APIドキュメント</a></li>
+								<li><a href="https://developer.yahoo.co.jp/yconnect/">Yahoo! ID連携</a></li>
+								<li><a href="https://developer.yahoo.co.jp/oss/">OSS</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>技術情報</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techblog.yahoo.co.jp/">Tech Blog</a></li>
+								<li><a href="https://www.docswell.com/user/ydnjp">登壇資料</a></li>
+								<li><a href="https://www.youtube.com/YahooDeveloperNetworkJP">登壇動画</a></li>
+								<li><a href="https://developer.yahoo.co.jp/labs/">Yahoo!ラボ</a></li>
+								<li><a href="https://randd.yahoo.co.jp/">Yahoo! JAPANの研究開発</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>イベント</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://techconference.yahoo.co.jp/">Tech Conference</a></li>
+								<li><a href="https://hackday.yahoo.co.jp/">Hack Day</a></li>
+								<li><a href="https://hacku.yahoo.co.jp/">Hack U</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="col1-4">
+					<dl>
+						<dt><span>コミュニティ</span><button>Open</button></dt>
+						<dd>
+							<ul>
+								<li><a href="https://yj-meetup.connpass.com/">東京</a></li>
+								<li><a href="https://yahoo-nagoya.connpass.com/">名古屋</a></li>
+								<li><a href="https://yahoo-osaka.connpass.com/">大阪</a></li>
+								<li><a href="https://yahoo-fukuoka.connpass.com/">福岡</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div><div data-menu="5">
+      <div class="head"><a href="https://about.yahoo.co.jp/csr/">CSR</a><button>Open</button></div>
+      <div class="body col-set">
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/message/">トップメッセージ</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/en/csr/message/">TOP MESSAGE (English)</a></dt>
+            <dt><a href="https://www.z-holdings.co.jp/sustainability/stakeholder/" target="_blank">ESG（Zホールディングスサイトへ）</a></dt>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/effort/">Yahoo! JAPANが挑戦する<br>社会課題解決の取り組み</a><button>Open</button></dt>
+            <dd>
+              <ul>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category01.html">#1 情報技術社会の発展</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category02.html">#2 災害・社会課題への支援</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category03.html">#3 誰もが活躍できる社会の実現</a></li>
+                <li><a href="https://about.yahoo.co.jp/csr/effort/category04.html">#4 持続可能な社会への挑戦</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="col1-3">
+          <dl>
+            <dt><a href="https://about.yahoo.co.jp/csr/report/">課題解決特集</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/topics/20200409.html">新型コロナウイルス感染拡大に関する<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/tohokujyunen/">東日本大震災における<br>ヤフーの取り組み</a></dt>
+            <dt><a href="https://about.yahoo.co.jp/csr/donationforcarbonneutral/">Yahoo! JAPAN 地域カーボンニュートラル<br>促進プロジェクト</a></dt>
+          </dl>
+        </div>
+      </div>
+    </div><div data-menu="6">
+      <div class="head"><a href="https://about.yahoo.co.jp/hr/">採用情報</a><button>Open</button></div>
+			<div class="body col-set">
+				<div class="col1-6">
+					<dl>
+						<dt><span>MESSAGE</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/message/ceo.html">CEOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/message/cto.html">CTOメッセージ</a></li>
+							<li><a href="https://about.yahoo.co.jp/info/mission/">ミッション・ビジョン・ステートメント</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>ABOUT US</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/about/movie/">動画で知るヤフー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/linotice/">ヤフーの人・仕事・働き方を伝えるlinotice</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/about/infographics/">数字で見るヤフー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>SERVICE</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/service/">サービス・事業</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>INTERVIEW</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/interview/">社員インタビュー</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>WORKPLACE</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/workstyle/">働き方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/office/">オフィス紹介</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/culture/">カルチャー</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/training/">人財育成</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/welfare/">福利厚生</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/mypolaris/">クリエイター活動支援制度</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/workplace/faq/">FAQ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+				<div class="col1-6">
+					<dl>
+						<dt><span>RECRUITMENT</span><button>Open</button></dt>
+						<dd>
+						<ul>
+							<li><a href="https://about.yahoo.co.jp/hr/potential/">ポテンシャル採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/job-info/">キャリア採用</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/forengineers/">エンジニアの方へ</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/disabilities/">障がいをお持ちの方</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/gigpartner/">ギグパートナー募集</a></li>
+							<li><a href="https://about.yahoo.co.jp/hr/internship/">インターンシップ</a></li>
+						</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+    </div></div><div class="search" style="display: none;"><div data-menu="7" class="search">
+      <form role="search" class="clearfix" action="https://about.yahoo.co.jp/search/">
+        <input name="q" type="text" value="" placeholder="コーポレートサイトを検索" aria-label="検索キーワード">
+        <button type="submit">検索</button>
+        <input type="hidden" name="category">
+      </form>
+    </div></div></div><div class="hamburger-cover"></div>
+<!-- /.header-navigation -->
+<noscript>
+  <div class="notice_area">
+  <div class="box">
+  <p>現在JavaScriptの設定が無効になっています。</p>
+  <p>このページを利用するにはJavaScriptの設定を有効にしてください。</p>
+  <p class="notice_link"><a href="https://support.yahoo-net.jp/noscript">JavaScriptの設定を変更する方法はこちら</a></p>
+  </div>
+  </div>
+  </noscript>
+</div>
+
+
+
+        <div id="wrapper">
+          <div class="com_emg_info">
+<div id="info" class="info-header" style="display: block;">
+<div class="info-emergency">
+
+  
+
+  <div id="emg3"><!-- EMG3 noResult --></div>
+  <div id="emg2"><!-- EMG2 noResult --></div>
+  <div id="emg1"><!-- EMG noResult --></div>
+</div><!-- /info-emergency -->
+</div><!-- /info-header -->
+</div>
+
+            <main id="top" role="main">
+              <div class="page-header">
+<div class="inner">
+<ul class="breadcrumbs">
+
+
+<li><a href="https://about.yahoo.co.jp/">Home</a></li>
+
+
+    <li><a href="https://developer.yahoo.co.jp/">テクノロジー</a></li>
+
+      
+      
+
+        
+        
+            <li><a href="https://developer.yahoo.co.jp/sitemap/">APIドキュメント</a></li>
+        
+        
+
+        
+        
+        
+            
+            
+                <li><a href="https://developer.yahoo.co.jp/yconnect/">Yahoo! ID連携</a></li>
+            
+            
+
+
+            
+            
+            
+                
+                
+                    
+                        <li><a href="https://developer.yahoo.co.jp/yconnect/v1/">v1</a></li>
+                    
+                
+                    
+                        <li><a href="https://developer.yahoo.co.jp/yconnect/v1/server_app/">WEBへの導入（利用言語を決める）</a></li>
+                    
+                
+                    
+                        <li><a href="https://developer.yahoo.co.jp/yconnect/v1/server_app/explicit/">SDKを利用しない場合</a></li>
+                    
+                
+                <li>Tokenエンドポイント</li>
+            
+            
+
+            
+            
+
+
+    
+
+
+    
+
+
+
+
+</ul>
+</div>
+</div><!-- /.page-header -->
+
+                <div class="main">
+
+                  <div class="common-section content">
+                    <div class="row">
+
+                      <div class="col-set">
+
+                        <div class="col3-4 yjdn-contents">
+                          
+                            <h1>Tokenエンドポイント</h1>
+<!--//Tokenエンドポイント start//-->
+<h2>Tokenエンドポイント</h2>
+<p>ウェブAPIにアクセスするのに必要なアクセストークンとアクセストークン更新用のリフレッシュトークンを返却します。<br>
+また、当エンドポイントでアクセストークンの更新も行います。</p>
+
+<!--//Tokenエンドポイント end//-->
+
+<!--//リクエスト start//-->
+
+<h2>リクエスト</h2>
+<pre><code class="lang-plaintext hljs">URL： https://auth.login.yahoo.co.jp/yconnect/v1/token
+サポートするHTTPメソッド： POST
+Content-Type： application/x-www-form-urlencoded
+Authorization： Basic認証</code></pre>
+
+<p>※サーバーサイドアプリケーションのTokenエンドポイントアクセス時にはBasic認証が必要です。<br>
+アプリケーション登録時に発行されたアプリケーションIDとシークレットを「:」（コロン）でつなぎ、Base64でエンコードしたものをAuthorizationヘッダーに乗せてアクセスしてください。</p>
+
+
+<p class="mb10">作成方法</p>
+<pre><code class="lang-plaintext hljs">basicAuth = base64_encode（$applicationId . ':' . $secret）;</code></pre>
+
+
+<p class="mb10">送信内容</p>
+
+<pre><code class="lang-plaintext hljs">Authorization: Basic <br>ZGoweUptazljbTgxVTIxNWRWTnNjbmRQSm1ROVdWZHJPVTB5TVd4a1NGcEpUakpOYldOSGJ6bE5RUzB0Sm5NOVkyOXVjM1Z0WlhKelpXTnlaWFFtZUQwMU5RLS06MDkwMjU4OTQ0ZDhiZjE4ODMxNDA3ZmNhNDM0ODE0MTVmOTI0MWU1Nw==</code></pre>
+
+<h3>アクセストークン新規取得時のリクエストパラメーター</h3>
+
+<table><tbody>
+<tr>
+<th>パラメーター</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>○</td>
+<td><b>authorization_code</b> という固定文字列を指定してください。</td>
+</tr>
+<tr>
+<td>code</td>
+<td>○</td>
+<td>認可コードを指定してください。一度リクエストした認可コードは使用できなくなります。再度リクエストする際にはAuthorizationエンドポイントで再取得してください。</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+<td>○</td>
+<td>Authorizationエンドポイントで指定したURI</td>
+</tr>
+</tbody></table>
+
+<h3>サンプルリクエストURL</h3>
+
+<pre><code class="lang-plaintext hljs">POST /yconnect/v1/token HTTP/1.1
+Host: auth.login.yahoo.co.jp
+Authorization: Basic ZGoweUptazljbTgxVTIxNWRWTnNjbmRQSm1ROVdWZHJPVTB5TVd4a1NGcEpUakpOYldOSGJ6bE5RUzB0Sm5NOVkyOXVjM1Z0WlhKelpXTnlaWFFtZUQwMU5RLS06N0ZqZnAwWkJyMUt0RFJibmZWZG1Jdw==
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+
+grant_type=authorization_code&amp;code=kr4ch7ga&amp;redirect_uri=http%3A%2F%2Fsample.domain.yahoo.co.jp%2Fcallback_path</code></pre>
+
+<h3>アクセストークン更新時のリクエストパラメーター</h3>
+
+<table><tbody>
+<tr>
+<th>パラメーター</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>○</td>
+<td><b>refresh_token</b> という固定文字列を指定してください。</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>○</td>
+<td>発行されたリフレッシュトークン</td>
+</tr>
+</tbody></table>
+
+<h3>サンプルリクエストURL</h3>
+
+<pre><code class="lang-plaintext hljs">POST /yconnect/v1/token HTTP/1.1
+Host: auth.login.yahoo.co.jp
+Authorization: Basic ZGoweUptazljbTgxVTIxNWRWTnNjbmRQSm1ROVdWZHJPVTB5TVd4a1NGcEpUakpOYldOSGJ6bE5RUzB0Sm5NOVkyOXVjM1Z0WlhKelpXTnlaWFFtZUQwMU5RLS06N0ZqZnAwWkJyMUt0RFJibmZWZG1Jdw==
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+
+grant_type=refresh_token&amp;refresh_token=tGzv3JOkF0XG5Qx2TlKWIA</code></pre>
+
+<!--//リクエスト end//-->
+
+
+<!--//レスポンス start//-->
+
+<h2>レスポンス</h2>
+
+<h3>アクセストークン新規取得時のレスポンスパラメーター</h3>
+
+<table><tbody>
+<tr>
+<th>パラメーター</th>
+<th>説明</th>
+</tr>
+<tr>
+<td>access_token</td>
+<td>アクセストークン。APIへアクセスするのに使用します。最大3072Byte の可変長トークンです。</td>
+</tr>
+<tr>
+<td>token_type</td>
+<td>アクセストークンタイプ。ウェブAPIへアクセスする際にアクセストークンを適切に用いるために必要な情報を提供します。</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>アクセストークンの有効期限を表す秒数。通常は3600(1時間)です。</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>リフレッシュトークン。アクセストークンを更新するときに使用します。有効期限は4週間です。最大512Byte の可変長トークンです。</td>
+</tr>
+<tr>
+<td>id_token</td>
+<td>ユーザー認証情報を含む改ざん検知用の署名付きトークン。authorizationのresponse_typeにて <b>id_token</b> を指定していた場合のみ返却します。最大1024Byte の可変長です。</td>
+</tr>
+</tbody></table>
+
+<h3>サンプルレスポンスパラメーター</h3>
+
+<pre><code class="lang-plaintext hljs">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Cache-Control: no-store
+Pragma: no-cache
+
+{
+  "access_token":"hZTtR27QpQELXIbTdv0OMkDsxNC8e0WR9VdcLiKcLZ9c9saAoaWWB37s148kaM_rdDpmPe5IWVV_sdD96ImhmzFgDZnU_h1R.usFFftz2X_xYVmf.OAEytY3CnspsjUgbEP8aUfaMhpGu6boa44_aeMpwv1BIUuv8I.dNTD7LmUEhtaumoehDnGJGkgZDZDAKW5GCo8F7xWQK932mty2j20u1wBVuifuHJHI7.CbooAIADs9QH18ajqE6bv6kHrhCHKFqol0AoVSm.8uL4pRJnBPwCUz7fZY.MYQjHzUQyign6hl6ZdZjvZwL9shqR40ykRF3cAD4r6IOD8RyT9ThnBXIURgZsEkptpq0Uwb.4FfwIvVGpCT1nruS4sxcmR2zb1WeEaKTHDeV9kcpe6o4PHN4YGmiKAocnE0v2Ur728FPhOnfSQOp_RlaNbZx1N8S3itQwjBsDLmbGCDTXl0Sq7ZhHLqRnAgFX9o6Y0M2yrG0tu__qADSj1r.JAZlM1IkP__F0oPtvP4FEVDDIN5PqYPXa354ONEDojrwELWQK8vRlL6itViC1mAbjJ0l7laW2X1vjOdwQC5g15Rb3m.Jl7ca6T4SQ55.vDkkIm1phYY7OjMapluHiRF6XE6rk1lavdp1z18qeOA4fKJMS7HIYwQrV.Re4VJKRJNO.K0UdGblI9.1b11uTXd9PwZHUlW3Tvn0LGLdd7.Q_rLCVs955K9SsuJBb1Cckc089i81vxTxm.V1Q2OBRckZjTT5a3aKDmT1oULUNOuUlw3",
+  "token_type":"bearer",
+  "expires_in":"3600",
+  "refresh_token":"AJAeEVAAaJ3KwKXLlSjht.FqB.KbYlwNHQUsOBT4epMupOwDjV.OtsU-",
+  "id_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXV0aC5sb2dpbi55YWhvby5jby5qcCIsInVzZXJfaWQiOiI1Qk5UNkZINFBFV0tVV1VBQlpaR1JNTDJVTSIsImF1ZCI6ImRqMHlKbWs5Y204MVUyMTVkVk5zY25kUEptUTlXVmRyT1UweU1XeGtTRnBKVGpKTmJXTkhiemxOUVMwdEpuTTlZMjl1YzNWdFpYSnpaV055WlhRbWVEMDFOUS0tIiwiaWF0IjoxMzQzMjk5MjIyLCJleHAiOjEzNDMzMDI4MTYsIm5vbmNlIjoiaG9nZWhvZ2UifQ.OeK5Y8TyFbes_JBddOelFWzD1HFSwzBsndADF-sVA_8"
+}</code></pre>
+<h3>アクセストークン更新時のレスポンスパラメーター</h3>
+
+<table><tbody>
+<tr>
+<th>パラメーター</th>
+<th>説明</th>
+</tr>
+<tr>
+<td>access_token</td>
+<td>アクセストークン。APIへアクセスするのに使用します。最大3072Byte の可変長トークンです。</td>
+</tr>
+<tr>
+<td>token_type</td>
+<td>アクセストークンタイプ。ウェブAPIへアクセスする際にアクセストークンを適切に用いるために必要な情報を提供します。</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>アクセストークンの有効期限を表す秒数。通常は3600(1時間)です。</td>
+</tr>
+</tbody></table>
+
+<h3>サンプルレスポンスパラメーター</h3>
+
+<pre><code class="lang-plaintext hljs">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Cache-Control: no-store
+Pragma: no-cache
+
+{
+  "access_token":"3FWwhoTwvSal9klWWjtRV2WngusIKO2vU.OID4edFeYaU1i5hqrHBpOaWLHkXXbwLBShiDbUvplmxd4vhSUGhNQhBRjFE2pMCpoMyyHTeqi1fj8eq1.fXEzZmuIVO72pOaX_Ed.gQ.DsGkVjaaWwQ_g5EiYwMqtRibtuYvbatosWSv0231hGpH8RHfaXbnsSx.eYuUyvXwN2cwU4I3LNq.b_kcPGCgE5xdVbGWvGljyU9b3h1afSFwq2P.4mYXnAmvtZYwej5OrEK7fCTYtnyvRjepPP40_wJ5jkGnVs.V5uR0GPG2I6mUx_O5OIoFaKBOw6Lznel2R_EA7MFsVYZtxYPs7eh7AE.5ysxMu.iVixFNyqomjf6FENlUVyHumRO_6b7nzPROa9Aa90y.m4din1iGbIq8p0ZxkH_H2sGv.J5kdavt2CnatJYM7QuSkQPt5AhJ6JhpzY69zdH5vw6VSx3EquvKZfFiq7tElTQ7GYA9ZKv4eyiiw6S5z_VM2heOO4gQFjZ32mhngcEj47WShXQoNLAL8v5XdVTmbQvd5YMC2_3BFEB.8eIblKQqdpqeH93r1uMSamnnTptsk0x7n8toYX_bRzW2742wS8NU_Sm1uXmrl70wAugOizQcbzHh4SKv1QJ3qgI035m3hnGe799uODOxhIKCI9njT0LvJCQN_f6Gx4BwjnHOS0luvY.nuVyx41jI9e176kkA--",
+  "token_type":"bearer",
+  "expires_in":"3600"
+}</code></pre>
+
+<h3>エラーレスポンス</h3>
+
+<p>リクエスト内容に誤りがあった場合は以下のレスポンスが返却されます。</p>
+
+<table><tbody>
+<tr>
+<th>パラメーター</th>
+<th>説明</th>
+</tr>
+<tr>
+<td>error</td>
+<td>以下のエラーコードを返却します。
+<ul>
+<li><b>'invalid_request'(400)</b> ：必須パラメーターが空、パラメーターが不正、未サポートのパラメーター</li>
+<li><b>'invalid_redirect_uri'(400)</b> ：redirect_uriがauthorizationリクエスト時と異なっている。</li>
+<li><b>'invalid_client'(401)</b> ：Basic認証を行っていない、Basic認証に失敗時</li>
+<li><b>'unsupported_grant_type'(400)</b> ：サポート外のgrant_type</li>
+<li><b>'invalid_grant'(401)</b> ：リフレッシュトークンが期限切れ</li>
+<li><b>'unauthorized_client'(403)</b> ：クライアントが削除されている。</li>
+<li><b>'access_denied'(403)</b> ：https以外でアクセス、アクティブユーザーでない。</li>
+<li><b>'server_error'(500)</b> ：認可サーバーの予期せぬエラー</li>
+</ul></td>
+</tr>
+<tr>
+<td>error_description</td>
+<td>エラー内容の詳細な説明</td>
+</tr>
+</tbody></table>
+
+<h3>サンプルエラーレスポンス</h3>
+
+
+<pre><code class="lang-plaintext hljs">http://example.com/cb?error=invalid_request&amp;error_description=required+parameter+is+empty.+%5B%22response_type%22%5D&amp;state=xyz</code></pre>
+
+<!--//レスポンス end//-->
+                          
+                        </div>
+
+                        <section class="col1-4 yjdn-side">
+
+	<p class="btn full"><a class="side-bt" href="https://e.developer.yahoo.co.jp/dashboard/"><span>アプリケーションの管理</span></a></p>
+
+
+	
+        <h3>Yahoo! ID連携 v1</h3>
+<ul>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/introduction.html">Yahoo! ID連携とは</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/guideline.html">ガイドラインを確認する</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://account.edit.yahoo.co.jp/registration?.src=developer&amp;.done=https%3A%2F%2Fdeveloper.yahoo.co.jp%2Fyconnect%2Fv1%2F">Yahoo! JAPAN IDを取得する</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/registration.html">アプリケーションIDを登録する</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/server_app/">WEBへの導入（利用言語を決める）</a>
+
+        <ul>
+          <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/server_app/php/">PHPによる導入方法</a>
+</li>
+          <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/server_app/java/">Javaによる導入方法</a>
+</li>
+          <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/server_app/explicit/">SDKを利用しない場合</a>
+
+          </li>
+        </ul>
+      </li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/client_app/">iOS/Androidへの導入（OSを選択する）</a>
+
+        <ul>
+          <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/client_app/ios/">iOS</a>
+</li>
+          <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/client_app/android/">Android</a>
+</li>
+        </ul>
+      </li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/userinfo.html">属性取得API（UserInfoAPI）について</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/billingaddress.html">請求先住所参照API（BillingAddressAPI）について</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/id_token.html">IDトークンについて</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/v1/api_access.html">APIアクセス実装方法</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/glossary.html">Yahoo! ID連携用語集</a>
+</li>
+      <li>
+  
+  
+  
+  
+    
+  
+  <a href="https://developer.yahoo.co.jp/yconnect/faq.html">FAQ</a>
+</li>
+      </ul>
+
+
+
+
+
+
+	
+
+	<h3>開発のヒント</h3>
+	<ul>
+		<li><a href="https://developer.yahoo.co.jp/start/">ご利用ガイド</a></li>
+		<li><a href="https://developer.yahoo.co.jp/changelog/">お知らせ</a></li>
+		<li><a href="https://support.yahoo-net.jp/PccDeveloper/s/article/H000011080">WebAPIの商用利用について</a></li>
+		<li><a href="https://developer.yahoo.co.jp/appendix/rate.html">利用制限について</a></li>
+		<li><a href="https://developer.yahoo.co.jp/sample/">サンプルコード</a></li>
+		<li><a href="https://developer.yahoo.co.jp/appendix/errors.html">エラーメッセージおよびコード</a></li>
+		<li><a href="https://developer.yahoo.co.jp/attribution/">クレジット表示</a></li>
+		<li><a href="https://developer.yahoo.co.jp/developer/contact/">お問い合わせ</a></li>
+	</ul>
+	
+		
+		<ul>
+			<h3>サービス一覧</h3>
+			<li><a href="https://developer.yahoo.co.jp/webapi/shopping/">ショッピングAPI</a></li>
+			<li><a href="https://developer.yahoo.co.jp/webapi/map/">YOLP(地図) </a></li>
+			<li><a href="https://developer.yahoo.co.jp/webapi/jlp/">テキスト解析API</a></li>
+			<li><a href="https://developer.yahoo.co.jp/yconnect/">Yahoo! ID連携</a></li>
+			<li><a href="https://developer.yahoo.co.jp/webapi/job/">求人API</a></li>
+			<li><a href="https://developer.yahoo.co.jp/sitemap/">すべてのサービスを見る</a></li>
+		</ul>
+	
+
+</section>
+
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div><!-- /.main -->
+            </main>
+
+            <footer class="page-footer" role="contentinfo">
+	
+    <div class="upper-tech">
+      <dl class="snslist">
+        <dt class="title">テクノロジー　公式SNSアカウント：</dt>
+        <dd class="twitter"><a href="https://twitter.com/intent/follow?screen_name=ydnjp"><img src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/icon_twitter.svg" width="40" height="40" alt="Twitter"></a></dd>
+      </dl>
+
+        <dl class="about">
+            <dt class="title">Yahoo!デベロッパーネットワークとは</dt>
+            <dd class="txt">
+              <p>クリエイターの皆さんとYahoo! JAPANの技術をつなげるポータルサイトです。<br>
+			  Yahoo! JAPANが提供するWeb APIやOSS、ソフトウエア開発に役立つ最新情報をお届けします。</p>
+            </dd>
+          </dl>
+
+    </div><!-- /.upper -->
+
+<div class="lower">
+		
+		<p class="links" id="footer-links">
+			<a href="https://privacy.yahoo.co.jp/">プライバシーセンター</a>
+			<a href="https://about.yahoo.co.jp/common/terms/index.html">利用規約</a>
+			
+			<a href="https://support.yahoo-net.jp/PccDeveloper/s/">お問い合わせ</a>
+			
+			<a href="https://about.yahoo.co.jp/common/copyright/">著作権やロゴについて</a>
+			<a href="https://about.yahoo.co.jp/common/disclaimer/">免責事項</a><br>
+		</p>
+		<p class="copyright">© Yahoo Japan</p>
+		
+	</div><!-- /.lower -->
+
+	
+</footer><!-- /.page-footer -->
+
+<div id="pagetop" class="fixed">
+	<p id="btn-pagetop" class="show"><a href="https://developer.yahoo.co.jp/yconnect/v1/server_app/explicit/token.html#top">このページの先頭へ</a></p>
+</div>
+
+
+        </div><!-- /#wrapper -->
+
+        <script src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/lib.js.download" defer=""></script>
+<script src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/common.js.download" defer=""></script>
+<script src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/highlight.pack.js.download" defer=""></script>
+<script src="./Tokenエンドポイント - Yahoo!デベロッパーネットワーク_files/common.min.js.download" defer=""></script>
+
+
+    
+
+  
+
+<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" focusable="false" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
+
+<!-- ■共通タグ --> 
+<!-- EBiS tag version4.10 start -->
+
+<!-- EBiS tag end --></body></html>
